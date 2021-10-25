@@ -17,3 +17,6 @@ post1 = Post.create(text_post: 'Hello, My name is Michelle', image_url: 'https:/
 c1 = Comment.create(comment_text: 'Hi, Michille', image_url: '', like: 0, post_id: post1.id, profile_id: p1.id)
 
 FriendList.create(user_id: u1.id, friend_id: u2.id)
+
+
+"done seeding"
