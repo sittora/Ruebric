@@ -5,9 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(user_name:'michelle', password:'coolbeans')
-User.create(user_name:'andy', password:'technical')
-User.create(user_name:'dakota', password:'sunnyday')
-User.create(user_name:'ronnie', password:'orangeflower')
+u1 = User.create(user_name:'michelle', password:'coolbeans')
+u2 = User.create(user_name:'andy', password:'technical')
+u3 = User.create(user_name:'dakota', password:'sunnyday')
+u4 = User.create(user_name:'ronnie', password:'orangeflower')
 
-Profile.create(nick_name:'stranger', name: 'Michelle', birthday: 12/14/1985, address: '123 Clinton St', occupation:'Engineer', bio: 'Enjoy outdoors and hiking', user_id:1 )
+p1 = Profile.create(nick_name:'stranger', name: 'Michelle', birthday: 12/14/1985, address: '123 Clinton St', occupation:'Engineer', bio: 'Enjoy outdoors and hiking', user_id: u1.id )
+
+post1 = Post.create(text_post: 'Hello, My name is Michelle', image_url: 'https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80', like: 1, profile_id: p1.id)
+
+c1 = Comment.create(comment_text: 'Hi, Michille', image_url: '', like: 0, post_id: post1.id, profile_id: p1.id)
+
+FriendList.create(user_id: u1.id, friend_id: u2.id)
