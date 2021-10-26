@@ -20,11 +20,11 @@ ActiveRecord::Schema.define(version: 2021_10_25_214324) do
     t.string "image_url"
     t.integer "like"
     t.bigint "post_id"
-    t.bigint "profile_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
-    t.index ["profile_id"], name: "index_comments_on_profile_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "friend_lists", force: :cascade do |t|
@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 2021_10_25_214324) do
     t.string "text_post"
     t.string "image_url"
     t.integer "like"
-    t.bigint "profile_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["profile_id"], name: "index_posts_on_profile_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 2021_10_25_214324) do
 
   create_table "users", force: :cascade do |t|
     t.string "user_name"
-    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
