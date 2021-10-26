@@ -44,7 +44,7 @@ function AuthenticatedApp({setCurrentUser, currentUser}){
       console.log(postMessage)
 
     return <div>You are now authenticated
-      <form onSubmit={handleSubmitPost}>
+      <form className="authenticated-form" onSubmit={handleSubmitPost}>
       <div className="input-container"> 
                 <label id="descriptionForm">Description: </label>
                 <textarea type="text" id="descriptionBox" name="text_post" value={postMessage.text_post} onChange={handleOnchange}></textarea>
