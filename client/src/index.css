@@ -12,8 +12,10 @@ code {
 .login{
   float: right;
   border: solid red 1px;
-  padding-right: 70px;
+  padding: 0 70px;
   padding-top: 90px; 
+  min-height: 68vh;
+  background-color: rgb(237, 231, 231);
 }
 
 .welcome-container{
@@ -22,6 +24,11 @@ code {
   position: absolute;
   padding-top: 180px; 
   padding-left: 200px;
+  min-height: 56.5vh;
+  width: 46.5%;
+  background-image: url(./logo-background.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .header-container {
