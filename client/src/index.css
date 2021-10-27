@@ -52,6 +52,15 @@ code {
   left: 3%;
 }
 
+.username-text{
+  left: 30%;
+}
+
+.password-text{
+  left: 30%;
+}
+
+
 .password-box {
   background-color: white;
   border: solid black 1px;

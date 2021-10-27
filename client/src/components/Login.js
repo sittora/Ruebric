@@ -35,7 +35,7 @@ return (
         <h1 className="login-text">Log In</h1>
         <p>
             <label 
-            className="block text-lg font-semibold"
+            className="username-text"
             htmlFor="username"
             >
             Username
@@ -50,7 +50,7 @@ return (
         </p>
         <p>
         <label 
-            className="block text-lg font-semibold"
+            className="password-text"
             htmlFor="password"
         >
             Password
