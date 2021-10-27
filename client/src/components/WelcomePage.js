@@ -6,7 +6,9 @@ function WelcomePage() {
 
   return (
     <div className="welcome-container">
-       <h2>You're not logged in, but welcome to our website</h2>
+       <h2><span role="img" aria-label="search">🔎</span> Follow your interests</h2>
+       <h2><span role="img" aria-label="search">👥</span> Hear what people are talking about</h2>
+       <h2><span role="img" aria-label="search">💬</span> Join the conversation</h2>
     </div>
 )
 }
