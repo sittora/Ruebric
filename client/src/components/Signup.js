@@ -35,9 +35,9 @@ const handleSubmit = (event) => {
 }
   return (
     <div className="login">
-        <h3> You're Signup</h3>
+        {/* <h3 className="you-signedup"> You're Signed up</h3> */}
     <form className="w-2/3 bg-white p-8 max-w-md space-y-4" onSubmit={handleSubmit}>
-        <h1 className="text-2xl text-center font-bold mb-2">Sign Up</h1>
+        <h1 className="signup-text">Sign Up</h1>
     <p>
         <label
             className="block text-lg font-semibold"
@@ -50,7 +50,7 @@ const handleSubmit = (event) => {
                 name="user_name"
                 value={user_name}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full p-2 border"
+                className="username-signup-box"
             />
         </p>
     <p>
@@ -65,7 +65,7 @@ const handleSubmit = (event) => {
                 name=""
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full p-2 border"
+                className="password-signup-box"
         />
         </p>
         <p>
@@ -80,12 +80,12 @@ const handleSubmit = (event) => {
                 name="password_confirmation"
                 value={passwordConfirmation}
                 onChange={(e) => setPasswordConfirmation(e.target.value)}
-                className="w-full p-2 border"
+                className="password-signup-confirmation-box"
         />
         </p>
-        <p><button className="w-full bg-green-500 py-2 mt-4" type="submit">Sign Up</button></p>
-        <p className="text-center">-- or --</p>
-        <p className="text-center"><Link className="py-4 px-6" to="/login">Log In</Link></p>
+        <p><button className="signup-button-two" type="submit">Sign Up</button></p>
+        <p className="or-text-two">~  or ~</p>
+        <p className="text-center"><Link className="login-link" to="/login">Log In</Link></p>
     </form>
     </div>
 )

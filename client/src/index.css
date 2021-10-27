@@ -24,12 +24,25 @@ code {
   max-width: 60%;
   position: absolute;
   padding-top: 180px; 
-  padding-left: 200px;
+  padding-left: 90px;
   min-height: 56.5vh;
   width: 46.5%;
   background-image: url(./logo-background.png);
   background-repeat: no-repeat;
   background-size: 100%;
+  /* border-radius: 90px; */
+}
+
+.welcome-container h2{
+  /* padding-top: 30px; 
+  padding-left: 40px; */
+  padding: 30px 40px;
+}
+
+.welcome-text-container {
+  background-color: rgba(207, 231, 236, 0.3);
+  width: 75%;
+  border-radius: 50px;
 }
 
 .header-container {
@@ -39,6 +52,7 @@ code {
   text-decoration: none; 
   background-color: #b3e7ec; 
   padding-bottom: 5px;
+  border: solid #55c9d3 1px;
 }
 
 .header-container img{
@@ -123,4 +137,92 @@ code {
 .signup-button:hover {
   background: #fff;
   color: black;
+}
+
+.username-signup-box {
+  background-color: white;
+  border: solid black 1px;
+  border-radius: 20px;
+  color: black;
+  justify-content: center;
+  text-align: center;
+  font-size: 25px;
+  position: relative;
+  width: 45%;
+  left: 3%;
+}
+
+.password-signup-box {
+  background-color: white;
+  border: solid black 1px;
+  border-radius: 20px;
+  color: black;
+  justify-content: center;
+  text-align: center;
+  font-size: 25px;
+  position: relative;
+  width: 45%;
+  left: 3%;
+}
+
+.password-signup-confirmation-box {
+  background-color: white;
+  border: solid black 1px;
+  border-radius: 20px;
+  color: black;
+  justify-content: center;
+  text-align: center;
+  font-size: 25px;
+  position: relative;
+  width: 45%;
+  left: 3%;
+}
+
+.signup-button-two {
+  min-width: 100px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: 31%;
+}
+
+.signup-button-two:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+.login-link {
+  text-align: center;
+  color: #57cc99;
+  display: block; 
+}
+
+.login-link:hover {
+  background: #fff;
+  color: black;
+}
+
+.or-text-two {
+  text-align: center;
+}
+
+.signup-text {
+  text-align: center;
+  padding-top: 50px; 
+  padding-right: 50px;
+}
+
+.you-signedup{
+  text-align: center;
+  padding-top: 50px; 
+  padding-right: 50px;
 }

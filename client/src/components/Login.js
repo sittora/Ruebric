@@ -32,7 +32,7 @@ return (
     <div className="login">
         <Redirect to="/" />
     <form className="w-2/3 bg-white p-8 max-w-md space-y-4" onSubmit={handleSubmit}>
-        <h1 className="login-text">Log In</h1>
+        <h1 className="login-text">Login</h1>
         <p>
             <label 
             className="username-text"
@@ -64,7 +64,7 @@ return (
         />
         </p>
         <p><button className="login-button" type="submit">Log In</button></p>
-        <p className="or-text">-- or --</p>
+        <p className="or-text">~  or ~</p>
         <p className="text-center"><Link className="signup-button" to="/signup">Sign Up</Link></p>
     </form>
     </div>
