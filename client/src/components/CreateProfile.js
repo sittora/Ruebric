@@ -1,39 +1,41 @@
 import React, { useState }from 'react';
 
-function CreateProfile({currentUser}){
-    const [pictureURL, setPictureURL] = useState("")
+function CreateProfile({currentUser, setToggleUpdateProfile}){
+    const [pictureURL, setPictureURL] = useState("https://st2.depositphotos.com/5682790/10456/v/600/depositphotos_104564156-stock-illustration-male-user-icon.jpg")
     const [formData, setFormData] = useState({
-        nick_name: "",
-        name: "",
-        birthday: "",
-        location: "",
-        bio: "",
-        occupation: "",
+        nick_name: currentUser.profile === null ? "" : currentUser.profile.nick_name,
+        name: currentUser.profile=== null ? "" : currentUser.profile.name,
+        birthday: currentUser.profile === null ? "" : currentUser.profile.birthday,
+        location: currentUser.profile === null ? "" : currentUser.profile.location,
+        bio: currentUser.profile === null ? "" : currentUser.profile.bio,
+        occupation: currentUser.profile === null ? "" : currentUser.profile.occupation,
         user_id: currentUser.id,
-        email: "",
-        profile_url: ""
+        email: currentUser.profile === null ? "" : currentUser.profile.email,
+        profile_url: currentUser.profile === null ? "" : currentUser.profile.profile_url
     })
-    function handleSubmit(e){
+
+    function handleCreate(e){
         e.preventDefault();
-        fetch('/profiles',{
-            method: 'POST',
+        fetch(currentUser.profile === null ? '/profiles' :`/profiles/${currentUser.profile.id}`,{
+            method: currentUser.profile === null ? 'POST' :'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(formData)
         })
-        setPictureURL("https://i.imgur.com/CBtjmX0.png")
-        setFormData({
-            nick_name: "",
-            name: "",
-            birthday: "",
-            location: "",
-            bio: "",
-            occupation: "",
-            user_id: currentUser.id,
-            email: "",
-            profile_url: ""
-        })
+        setToggleUpdateProfile(toggleUpdateProfile => !toggleUpdateProfile)
+        // setPictureURL("https://i.imgur.com/CBtjmX0.png")
+        // setFormData({
+        //     nick_name: "",
+        //     name: "",
+        //     birthday: "",
+        //     location: "",
+        //     bio: "",
+        //     occupation: "",
+        //     user_id: currentUser.id,
+        //     email: "",
+        //     profile_url: ""
+        // })
     }
     function handleChange(event){
         
@@ -44,10 +46,10 @@ function CreateProfile({currentUser}){
         setFormData({...formData, [key]: event.target.value})
     }
         return (
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleCreate} >
             <div className="formDetails">
-                <h1 id="submitHeader">Update Your Profile</h1>
-                <img className="profileImage"src={pictureURL === "" ? "https://st2.depositphotos.com/5682790/10456/v/600/depositphotos_104564156-stock-illustration-male-user-icon.jpg" : pictureURL } alt="profilePicture" />
+                <h3 id="submitHeader">{currentUser.profile === null ? "Create Your Profile" : "Update Your Profile" }</h3>
+                <img className="profileImage"src={currentUser.profile === null ? pictureURL : currentUser.profile.profile_url} alt="profilePicture" />
             
             
                 <div className="input-container"> 
@@ -64,8 +66,8 @@ function CreateProfile({currentUser}){
                     <input type="text"  name="profile_url" value={formData.profile_url} onChange={handleChange}></input>
                 </div>
                 <div className="input-container"> 
-                    <label >Date of Birth: </label>
-                    <input type="text"  name="birthday" value={formData.birthday} onChange={handleChange}></input>
+                    <label >Age: </label>
+                    <input type="number"  name="birthday" value={formData.birthday} onChange={handleChange}></input>
                 </div>
                 <div className="input-container"> 
                     <label>Email: </label>
@@ -85,7 +87,7 @@ function CreateProfile({currentUser}){
                 </div>
             
                 <div className="input-container">
-                    <input type="submit" value="Update Profile" />
+                    <input type="submit" value={currentUser.profile === null ? "Create Your Profile" : "Update Your Profile" } />
                 </div>
             </div>
         </form>

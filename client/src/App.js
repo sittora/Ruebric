@@ -10,7 +10,7 @@ import './App.css';
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const [authChecked, setAuthChecked] = useState(false)
-
+  const [toggleUpdateProfile, setToggleUpdateProfile] = useState(false)
   useEffect(() => {
     fetch('/me', {
       credentials: 'include'
@@ -25,7 +25,8 @@ function App() {
           setAuthChecked(true)
         }
       })
-  }, [])
+  }, [toggleUpdateProfile])
+  
   if(!authChecked) { return <div></div>}
   return (
     
@@ -37,6 +38,7 @@ function App() {
           <AuthenticatedApp
             setCurrentUser={setCurrentUser}
             currentUser={currentUser}
+            setToggleUpdateProfile={setToggleUpdateProfile}
           />
         ]
       ) : (
