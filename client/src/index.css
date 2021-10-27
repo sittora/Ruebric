@@ -11,15 +11,16 @@ code {
 
 .login{
   float: right;
-  border: solid red 1px;
+  /* border: solid red 1px; */
   padding: 0 70px;
   padding-top: 90px; 
   min-height: 68vh;
-  background-color: rgb(237, 231, 231);
+  background: rgb(179,231,236);
+  background: linear-gradient(180deg, rgba(179,231,236,1) 0%, rgba(227,244,247,1) 100%);
 }
 
 .welcome-container{
-  border: solid blue 1px;
+  /* border: solid blue 1px; */
   max-width: 60%;
   position: absolute;
   padding-top: 180px; 
