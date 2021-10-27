@@ -43,7 +43,7 @@ function AuthenticatedApp({setCurrentUser, currentUser}){
       }
       console.log(postMessage)
 
-    return <div>You are now authenticated
+    return <div className="login-container">You are now authenticated
       <form className="authenticated-form" onSubmit={handleSubmitPost}>
       <div className="input-container"> 
                 <label id="descriptionForm">Description: </label>

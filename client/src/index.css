@@ -12,6 +12,25 @@ code {
     monospace;
 }
 
-.authenticated-form {
-  position: right;
+.login{
+  float: right;
+  border: solid red 1px;
+}
+
+.welcome-container{
+  border: solid blue 1px;
+  max-width: 60%;
+  position: absolute;
+}
+
+.header-container {
+  padding: 60px;
+  font-size: 20px;
+  color: black;
+  text-decoration: none; 
+  background-color: black; 
+}
+
+.header-container img{
+  max-width: 30%;
 }

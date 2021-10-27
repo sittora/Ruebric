@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import UnauthenticatedApp from './UnauthenticatedApp'
 import AuthenticatedApp from './AuthenticatedApp'
+import Header from './components/Header'
+import WelcomePage from './components/WelcomePage'
 
 import './App.css';
 
@@ -26,16 +28,26 @@ function App() {
   }, [])
   if(!authChecked) { return <div></div>}
   return (
+    
     <Router>
+      <Header/>
     {currentUser ? (
-        <AuthenticatedApp
-          setCurrentUser={setCurrentUser}
-          currentUser={currentUser}
-        />
+        
+        [
+          <AuthenticatedApp
+            setCurrentUser={setCurrentUser}
+            currentUser={currentUser}
+          />,
+          <WelcomePage />
+        ]
       ) : (
-        <UnauthenticatedApp
-          setCurrentUser={setCurrentUser}
-        />
+        [
+          <WelcomePage />,
+          <UnauthenticatedApp
+            setCurrentUser={setCurrentUser}
+          />
+          
+        ]
       )
     }
   </Router>
