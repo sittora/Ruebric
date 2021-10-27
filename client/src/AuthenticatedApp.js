@@ -1,16 +1,11 @@
-import React, {useState} from 'react';
-
-
+import React, {useState, useEffect} from 'react';
+import PostForm from './components/PostForm';
+import PostHandle from './components/PostHandle';
 function AuthenticatedApp({setCurrentUser, currentUser}){
-  console.log(currentUser)
-  const [postMessage, setPostMessage]= useState({
-    text_post: "",
-    image_url: "",
-    like: 0,
-    user_id: currentUser.id
-  })
-
-
+  const [userPost, setUserPost] = useState()
+  const [togglePostSubmit, setTogglePostSubmit]= useState(false)
+  
+  const [hideShow, setHideShow] = useState(false)
     const handleLogout = () => {
         fetch(`/logout`, {
           method: 'DELETE',
@@ -19,45 +14,42 @@ function AuthenticatedApp({setCurrentUser, currentUser}){
           .then(res => {
             if (res.ok) {
               setCurrentUser(null)
-             
+            
             }
           })
       }
-      function handleSubmitPost(e){
-        e.preventDefault()
 
-        fetch('/posts',{
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(postMessage)
-      })
+useEffect(() =>{
+  fetch(`/posts`)
+  .then(r=>r.json())
+  .then(postsData => setUserPost(postsData))
+},[togglePostSubmit])
+console.log(userPost)
 
-      }
-      
-      function handleOnchange(e){
-        const key = e.target.name
-        setPostMessage({...postMessage, [key]: e.target.value})
-        
-      }
-      console.log(postMessage)
+function handleCreateProfile(){
+ 
+}
 
-    return <div className="login-container">You are now authenticated
-      <form className="authenticated-form" onSubmit={handleSubmitPost}>
-      <div className="input-container"> 
-                <label id="descriptionForm">Description: </label>
-                <textarea type="text" id="descriptionBox" name="text_post" value={postMessage.text_post} onChange={handleOnchange}></textarea>
-         </div>
-      <div className="input-container"> 
-                <label id="urlForm">Url Image: </label>
-                <input type="text" id="image_urlBox" name="image_url" value={postMessage.image_url} onChange={handleOnchange}></input>
-      </div>
-      <div class="input-container">
-                <input type="submit" value="Post" />
-      </div>
-      </form>
-        <button onClick={handleLogout}>Logout</button>
+// console.log(userPost)
+const displayPost = userPost === undefined || userPost.status === 404 ? null : userPost.map(post => <PostHandle 
+                                                                              key={post.id} post={post}  
+                                                                              currentUser={currentUser}
+                                                                              setTogglePostSubmit={setTogglePostSubmit}
+                                                                              />)
+     
+
+return <div className="displayLoginUserData">
+        <div className="profileBtnContainer">
+            <h4>You are now log in as {currentUser.user_name}</h4>
+            <button>Update Your Profile</button>
+            <button onClick={handleLogout}>Logout</button>
+        </div>
+        <div className="postsContainer">
+         
+          <PostForm currentUser={currentUser} setTogglePostSubmit={setTogglePostSubmit} />
+          
+          {displayPost}
+        </div>
     </div>
 }
 

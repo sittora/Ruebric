@@ -37,8 +37,7 @@ function App() {
           <AuthenticatedApp
             setCurrentUser={setCurrentUser}
             currentUser={currentUser}
-          />,
-          <WelcomePage />
+          />
         ]
       ) : (
         [
