@@ -50,6 +50,7 @@
 .profileBtnContainer{
   position: absolute;
   left: 0px;
+  z-index: 1;
 }
 .eachPostContainer{
   position: relative;
@@ -75,5 +76,9 @@
   width: 200px;
   height: 200px;
   object-fit: cover;
+}
+.profileImage{
+  width: 100px;
+  height: 100px;
 }
 

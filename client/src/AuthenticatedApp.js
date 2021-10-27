@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import PostForm from './components/PostForm';
 import PostHandle from './components/PostHandle';
+import CreateProfile from './components/CreateProfile';
 function AuthenticatedApp({setCurrentUser, currentUser}){
   const [userPost, setUserPost] = useState()
   const [togglePostSubmit, setTogglePostSubmit]= useState(false)
-  
+  const [toggleCreateProfile, setToggleCreateProfile] = useState(false)
   const [hideShow, setHideShow] = useState(false)
     const handleLogout = () => {
         fetch(`/logout`, {
@@ -27,7 +28,7 @@ useEffect(() =>{
 console.log(userPost)
 
 function handleCreateProfile(){
- 
+  setToggleCreateProfile(toggleCreateProfile => !toggleCreateProfile)
 }
 
 // console.log(userPost)
@@ -41,8 +42,9 @@ const displayPost = userPost === undefined || userPost.status === 404 ? null : u
 return <div className="displayLoginUserData">
         <div className="profileBtnContainer">
             <h4>You are now log in as {currentUser.user_name}</h4>
-            <button>Update Your Profile</button>
+            <button onClick={handleCreateProfile}>Update Your Profile</button>
             <button onClick={handleLogout}>Logout</button>
+            {toggleCreateProfile === false ? null : <CreateProfile currentUser={currentUser} />}
         </div>
         <div className="postsContainer">
          

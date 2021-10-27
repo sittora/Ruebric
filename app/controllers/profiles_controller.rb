@@ -23,6 +23,9 @@ class ProfilesController < ApplicationController
       end
 
       private
+      def profile_params
+        params.permit(:nick_name, :name, :birthday, :location, :occupation, :bio, :user_id, :email, :profile_url)
+      end
 
       def get_profile
         @profile = Profile.find_by(id: params[:id])

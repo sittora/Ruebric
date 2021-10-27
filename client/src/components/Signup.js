@@ -34,7 +34,8 @@ const handleSubmit = (event) => {
     })
 }
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="login">
+        <h3> You're Signup</h3>
     <form className="w-2/3 bg-white p-8 max-w-md space-y-4" onSubmit={handleSubmit}>
         <h1 className="text-2xl text-center font-bold mb-2">Sign Up</h1>
     <p>
