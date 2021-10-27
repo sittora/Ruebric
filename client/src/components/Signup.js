@@ -71,7 +71,7 @@ const handleSubmit = (event) => {
         <p>
         <label 
             htmlFor="password_confirmation"
-            className="block text-lg font-semibold"
+            className="password-confirmation-text"
         >
             Password Confirmation
         </label>

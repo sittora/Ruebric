@@ -12,7 +12,7 @@ code {
 .login{
   float: right;
   /* border: solid red 1px; */
-  padding: 0 70px;
+  padding: 0 115px;
   padding-top: 90px; 
   min-height: 68vh;
   background: rgb(179,231,236);
@@ -125,12 +125,16 @@ code {
 
 .or-text {
   text-align: center;
+  right: 20px;
+  position: relative;
 }
 
 .signup-button {
   text-align: center;
+  position: relative;
   color: #57cc99;
   display: block;
+  right: 20px;
 }
 
 .signup-button:hover {
@@ -173,7 +177,12 @@ code {
   font-size: 25px;
   position: relative;
   width: 45%;
-  left: 3%;
+  right: 82px;
+}
+
+.password-confirmation-text {
+  position: relative;
+  right: 95px;
 }
 
 .signup-button-two {
@@ -202,6 +211,8 @@ code {
   text-align: center;
   color: #57cc99;
   display: block; 
+  right: 30px;
+  position: relative;
 }
 
 .login-link:hover {
@@ -210,6 +221,8 @@ code {
 
 .or-text-two {
   text-align: center;
+  right: 30px;
+  position: relative;
 }
 
 .signup-text {
