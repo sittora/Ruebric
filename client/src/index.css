@@ -236,3 +236,252 @@ code {
   padding-top: 50px; 
   padding-right: 50px;
 }
+
+.searchBar {
+  background-color: white;
+  border: 2px solid #57cc99;
+  border-radius: 20px;
+  color: black;
+  justify-content: center;
+  text-align: center;
+  font-size: 25px;
+  position: relative;
+  width: 45%;
+  /* left: 8%; */
+}
+
+.search-button {
+  min-width: 100px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: 5%;
+}
+
+.search-button:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+.search-user-text {
+  position: relative;
+  right: 2%;
+}
+
+.Search-Bar-Box {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  background-color: #9ddce1;
+}
+
+.inputSearch{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.update-your-profile-button {
+  min-width: 100px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: 4%;
+}
+
+.update-your-profile-button:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+.logout-button {
+  min-width: 100px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: 11%;
+}
+
+.logout-button:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+.post-button {
+  min-width: 100px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: 30%;
+}
+
+.post-button:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+.delete-button {
+  min-width: 100px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: 80%;
+}
+
+.delete-button:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+.add-image-button {
+  min-width: 100px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: 3%;
+}
+
+.add-image-button:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+.leave-comment-button {
+  min-width: 100px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: 3%;
+}
+
+.leave-comment-button:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+.comment-button {
+  min-width: 100px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: 3%;
+}
+
+.comment-button:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+.like-button{
+  min-width: 60px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: 2%;
+}
+
+.like-button:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+.description-box {
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  height: 80px;
+  width: 130%;
+  border: 2px solid #57cc99;
+  background-color: rgba(207, 231, 236, 0.3);
+}
+
+.image-url-box {
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  height: 25px;
+  width: 130%;
+  border: 2px solid #57cc99;
+  background-color: rgba(207, 231, 236, 0.3);
+}

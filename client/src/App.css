@@ -86,16 +86,11 @@
   height: 500px;
   margin-left: 10px;
 }
-.Search-Bar-Box{
+/* .Search-Bar-Box{
   position: relative;
   height: 50px;
   width: 100%;
   background-color: pink;
 
-}
+} */
 
-.inputSearch{
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}

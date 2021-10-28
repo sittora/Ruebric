@@ -48,8 +48,8 @@ return <div className="displayLoginUserData">
         </div>
         <div className="profileBtnContainer">
             <h4>You are now log in as {currentUser.user_name}</h4>
-            <button onClick={handleCreateProfile}>{currentUser.profile === null ? "Create Your Profile" : "Update Your Profile"}</button>
-            <button onClick={handleLogout}>Logout</button>
+            <button className="update-your-profile-button" onClick={handleCreateProfile}>{currentUser.profile === null ? "Create Your Profile" : "Update Your Profile"}</button>
+            <button className="logout-button" onClick={handleLogout}>Logout</button>
             {toggleCreateProfile === false ? currentUser.profile === null ? null : <ProfileDetails currentUser={currentUser} /> : <CreateProfile currentUser={currentUser} setToggleUpdateProfile={setToggleUpdateProfile}/>}
         </div>
         <div className="postsContainer">

@@ -20,9 +20,9 @@ function handleSearchSubmit(e){
 
     return <div className="inputSearch">
         <form onSubmit={handleSearchSubmit}>
-        <label>Search User: </label>
+        <label className="search-user-text">Search User: </label>
         <input className="searchBar" value={search} onChange={(e) => setSearch(e.target.value)}/>
-        <input type="submit" value="Search" />
+        <input type="submit"  className="search-button" value="Search" />
         </form>
     </div>
 }

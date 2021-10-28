@@ -42,14 +42,14 @@ function handleOnchange(e){
         <form className="authenticated-form" onSubmit={handleSubmitPost}>
             <div className="input-container"> 
                 <label id="descriptionForm" >Description: </label>
-                <textarea type="text" id="descriptionBox" name="text_post" value={postMessage.text_post} onChange={handleOnchange} placeholder="Share your blogs"></textarea>
+                <textarea type="text" id="descriptionBox" className="description-box" name="text_post" value={postMessage.text_post} onChange={handleOnchange} placeholder="Share your thoughts"></textarea>
             </div>
             <div className="input-container"> 
                 <label id="urlForm">Url Image: </label>
-                <input type="text" id="image_urlBox" name="image_url" value={postMessage.image_url} onChange={handleOnchange}></input>
+                <input type="text" id="image_urlBox" className="image-url-box" name="image_url" value={postMessage.image_url} onChange={handleOnchange}></input>
             </div>
             <div className="input-container">
-                <input type="submit" value="Post" />
+                <input type="submit" className="post-button" value="Post" />
             </div>
         </form>
     </div>

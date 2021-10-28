@@ -47,7 +47,7 @@ function handleDeletePost(){
     return <div className="eachPostContainer">
         <span >
             <h3>{currentUser.user_name}</h3>
-            <button onClick={handleDeletePost}>x</button>
+            <button className="delete-button" onClick={handleDeletePost}>Delete</button>
             <p>{text_post}</p>
             {image_url === "" ? null : <img src={image_url} alt={currentUser.user_name} className="imageContainer"></img>}
             
@@ -57,8 +57,8 @@ function handleDeletePost(){
         <p>{comments.length}</p>
         </span>
         <span className="likeAndCommentBtn">
-            <button onClick={handleLikeBtn}>{handleBtnLike === false ? 'Like' :'Dislike'}</button>
-            <button onClick={handleCommentbtn}>Comment</button>
+            <button className="like-button" onClick={handleLikeBtn}>{handleBtnLike === false ? 'Like' :'Dislike'}</button>
+            <button className="comment-button" onClick={handleCommentbtn}>Comment</button>
         </span>
         {handleBtnComment === true ? <CommentForm currentUser={currentUser} comments={comments} idPost={id}  setTogglePostSubmit={setTogglePostSubmit}/>  : null}
     </div>
