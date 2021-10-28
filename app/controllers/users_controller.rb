@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
-
+    def index
+      render json: User.all, status: :ok
+    end
     def show
       if current_user
         render json: current_user, status: :ok
@@ -25,6 +27,17 @@ class UsersController < ApplicationController
       else
         render json: {error: "no active session"}, status: :unprocessable_entity
       end
+    end
+    def follow
+      @user = User.find(params[:id])
+      current_user.followees << @user
+      redirect_back(fallback_location: user_path(@user))
+    end
+    
+    def unfollow
+      @user = User.find(params[:id])
+      current_user.followed_users.find_by(followee_id: @user.id).destroy
+      redirect_back(fallback_location: user_path(@user))
     end
 
    private

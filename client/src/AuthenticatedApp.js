@@ -3,12 +3,13 @@ import PostForm from './components/PostForm';
 import PostHandle from './components/PostHandle';
 import CreateProfile from './components/CreateProfile';
 import ProfileDetails from './components/ProfileDetails';
+import SeachUser from './components/SeachUser'
 function AuthenticatedApp({setCurrentUser, currentUser, setToggleUpdateProfile}){
   const [userPost, setUserPost] = useState()
   const [togglePostSubmit, setTogglePostSubmit]= useState(false)
   const [toggleCreateProfile, setToggleCreateProfile] = useState(false)
   const [hideShow, setHideShow] = useState(false)
-  
+  console.log(currentUser)
     const handleLogout = () => {
         fetch(`/logout`, {
           method: 'DELETE',
@@ -42,6 +43,9 @@ const displayPost = userPost === undefined || userPost.status === 404 ? null : u
      
 
 return <div className="displayLoginUserData">
+        <div className="Search-Bar-Box">
+        <SeachUser />
+        </div>
         <div className="profileBtnContainer">
             <h4>You are now log in as {currentUser.user_name}</h4>
             <button onClick={handleCreateProfile}>{currentUser.profile === null ? "Create Your Profile" : "Update Your Profile"}</button>

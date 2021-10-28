@@ -2,7 +2,7 @@ import React from 'react'
 
 
 function ProfileDetails({currentUser}){
-    console.log(currentUser.profile)
+    
     const {name, bio, birthday, email, location, nick_name, occupation, profile_url} = currentUser.profile
     return <div className="profileDetailContainer">
         <img className="profileImage" src={profile_url ==="" ? "https://st2.depositphotos.com/5682790/10456/v/600/depositphotos_104564156-stock-illustration-male-user-icon.jpg}" : profile_url} alt={name} />

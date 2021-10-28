@@ -3,6 +3,7 @@ import CommentForm from './CommentForm'
 
 function PostHandle({post, currentUser, setTogglePostSubmit}){
     const {image_url, like, text_post, id, comments} = post
+    console.log(post)
     const [handleLike, setHandleLike]= useState(like)
     const [handleBtnLike, setHandleBtnLike] = useState(false)
     const [handleBtnComment, setHandleBtnComment] = useState(false)
@@ -48,8 +49,7 @@ function handleDeletePost(){
             <h3>{currentUser.user_name}</h3>
             <button onClick={handleDeletePost}>x</button>
             <p>{text_post}</p>
-            
-            <img src={image_url} alt={currentUser.user_name} className="imageContainer"></img>
+            {image_url === "" ? null : <img src={image_url} alt={currentUser.user_name} className="imageContainer"></img>}
             
         </span>
         <span className="likeAndComment">
