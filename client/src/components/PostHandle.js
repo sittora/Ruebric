@@ -44,7 +44,7 @@ function handleDeletePost(){
 
 
     
-    return <div className="eachPostContainer">
+    return <div className="each-post-container">
         <span >
             <h3>{currentUser.user_name}</h3>
             <button className="delete-button" onClick={handleDeletePost}>Delete</button>

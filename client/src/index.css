@@ -304,7 +304,7 @@ code {
   border-radius: 20px;
   border: 2px solid #57cc99;
   background: #b3e7ec;
-  left: 4%;
+  right: 60%;
 }
 
 .update-your-profile-button:hover {
@@ -326,7 +326,7 @@ code {
   border-radius: 20px;
   border: 2px solid #57cc99;
   background: #b3e7ec;
-  left: 11%;
+  right: 40%;
 }
 
 .logout-button:hover {
@@ -474,6 +474,7 @@ code {
   width: 130%;
   border: 2px solid #57cc99;
   background-color: rgba(207, 231, 236, 0.3);
+  margin-left: -25%;
 }
 
 .image-url-box {
@@ -484,4 +485,175 @@ code {
   width: 130%;
   border: 2px solid #57cc99;
   background-color: rgba(207, 231, 236, 0.3);
+  margin-left: -25%;
 }
+
+.comment-text-box {
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  height: 60px;
+  width: 70%;
+  border: 2px solid #57cc99;
+  background-color: rgba(207, 231, 236, 0.3);
+}
+
+.comment-image-url-box {
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  height: 25px;
+  width: 70%;
+  border: 2px solid #57cc99;
+  background-color: rgba(207, 231, 236, 0.3);
+}
+
+.profile-detail-container {
+  float: left;
+  /* border: solid red 1px; */
+  padding: 0 70px;
+  padding-top: 90px; 
+  height: 100%;
+  min-height: 300vh;
+  background: rgb(179,231,236);
+  background: linear-gradient(180deg, rgba(179,231,236,1) 0%, rgba(227,244,247,1) 100%);
+}
+
+.profile-image {
+  width: 134px;
+  height: 134px;
+  border-radius: 50%;
+  border: #57cc99 3px solid;
+}
+
+.mark {
+  position: relative;
+  background-color: green;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  border: #fff 3px solid;
+  bottom: 3px;
+  right: 0px;
+}
+
+.nickname-input-box {
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  height: 25px;
+  width: 50%;
+  border: 2px solid #57cc99;
+  background-color: rgba(207, 231, 236, 0.3);
+  margin-right: 2em;
+}
+
+.name-input-box {
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  height: 25px;
+  width: 50%;
+  border: 2px solid #57cc99;
+  background-color: rgba(207, 231, 236, 0.3);
+  margin-right: 4%;
+}
+
+.profile-picture-input-box {
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  height: 25px;
+  width: 50%;
+  border: 2px solid #57cc99;
+  background-color: rgba(207, 231, 236, 0.3);
+}
+
+.age-input-box {
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  height: 25px;
+  width: 50%;
+  border: 2px solid #57cc99;
+  background-color: rgba(207, 231, 236, 0.3);
+}
+
+.email-input-box {
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  height: 25px;
+  width: 50%;
+  border: 2px solid #57cc99;
+  background-color: rgba(207, 231, 236, 0.3);
+}
+
+.location-input-box {
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  height: 25px;
+  width: 50%;
+  border: 2px solid #57cc99;
+  background-color: rgba(207, 231, 236, 0.3);
+}
+
+.occupation-input-box {
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  height: 25px;
+  width: 50%;
+  border: 2px solid #57cc99;
+  background-color: rgba(207, 231, 236, 0.3);
+}
+
+.bio-input-box {
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  height: 70px;
+  width: 70%;
+  border: 2px solid #57cc99;
+  background-color: rgba(207, 231, 236, 0.3);
+}
+
+.update-profile-button {
+  min-width: 100px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: 3%;
+}
+
+.update-profile-button:hover{
+  background: #fff;
+  color: #57cc99;
+}
+
+.update-profile-container {
+  float: left;
+  /* border: solid red 1px; */
+  padding: 0 70px;
+  padding-top: 90px; 
+  height: 100%;
+  min-height: 300vh;
+  /* background: rgb(179,231,236); */
+  background: linear-gradient(180deg, rgba(179,231,236,1) 0%, rgba(227,244,247,1) 100%);
+}
+
+/* .each-post-container {
+  border: 2px solid #57cc99;
+  margin-right: 150px;
+  margin-left: 80px;
+} */
