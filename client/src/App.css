@@ -42,13 +42,11 @@
 }
 .postsContainer{
   position: relative;
-  top: 100px;
+  top: -92px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 2px solid #57cc99;
-  /* margin-right: 150px;
-  margin-left: 8px; */
 }
 .profileBtnContainer{
   position: relative;
@@ -126,4 +124,9 @@ flex-direction: column;
 .profileSearchUserDetail{
 position: absolute;
   left: 10px;
+}
+
+.input-container-for-comments {
+  position: relative;
+  top: 20px;
 }

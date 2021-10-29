@@ -44,13 +44,13 @@ function handleSubmitComment(e){
         {showComments}
         <div className="comment-form">
             <form className="authenticated-form" onSubmit={handleSubmitComment}>
-            <div className="input-container"> 
+            <div className="input-container-for-comments"> 
                 
                 <textarea type="text" className="comment-text-box" name="comment_text" value={commentData.comment_text} onChange={handleOnchange} placeholder={`Comment as ${currentUser.user_name}`} ></textarea>
                 <button type='button' className="add-image-button" onClick={() => setToggleBtn(toggleBtn => !toggleBtn)}>Add Image</button>
             </div>
             {toggleBtn === true ? <div className="input-container"> 
-                <input type="text" className="comment-image-url-box" id="image_urlBox" name="image_url" placeholder="Url Image" value={commentData.image_url} onChange={handleOnchange}></input>
+                <input type="text" className="comment-image-url-box" id="image_urlBox" name="image_url" placeholder="Image URL" value={commentData.image_url} onChange={handleOnchange}></input>
             </div> : null}
             <div className="input-container">
                 <input type="submit" className="leave-comment-button" value="Leave a comment" />

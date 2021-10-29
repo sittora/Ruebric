@@ -342,13 +342,14 @@ code {
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
-  position: relative;
+  position: absolute;
   display: inline-block;
   outline: none;
   border-radius: 20px;
   border: 2px solid #57cc99;
   background: #b3e7ec;
-  left: 30%;
+  left: 42%;
+  top: 200px;
 }
 
 .post-button:hover {
@@ -357,7 +358,7 @@ code {
 }
 
 .delete-button {
-  min-width: 100px;
+  min-width: 80px;
   height: 30px;
   color: black;
   padding: 5px 10px;
@@ -393,6 +394,7 @@ code {
   border: 2px solid #57cc99;
   background: #b3e7ec;
   left: 3%;
+  top: 29px;
 }
 
 .add-image-button:hover {
@@ -414,7 +416,8 @@ code {
   border-radius: 20px;
   border: 2px solid #57cc99;
   background: #b3e7ec;
-  left: 3%;
+  left: 23%;
+  top: 30px;
 }
 
 .leave-comment-button:hover {
@@ -506,6 +509,7 @@ code {
   width: 70%;
   border: 2px solid #57cc99;
   background-color: rgba(207, 231, 236, 0.3);
+  top: 20px;
 }
 
 .profile-detail-container {
@@ -526,7 +530,7 @@ code {
   border: #57cc99 3px solid;
 }
 
-.mark {
+/* .mark {
   position: relative;
   background-color: green;
   border-radius: 50%;
@@ -535,7 +539,7 @@ code {
   border: #fff 3px solid;
   bottom: 3px;
   right: 0px;
-}
+} */
 
 .nickname-input-box {
   position: relative;
@@ -664,4 +668,11 @@ code {
   height: 25px;
   width: 50%;
   
+}
+
+.profileImage {
+  width: 134px;
+  height: 134px;
+  border-radius: 50%;
+  border: #57cc99 3px solid;
 }
