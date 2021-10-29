@@ -304,7 +304,7 @@ code {
   border-radius: 20px;
   border: 2px solid #57cc99;
   background: #b3e7ec;
-  right: 60%;
+  /* right: 60%; */
 }
 
 .update-your-profile-button:hover {
@@ -326,7 +326,7 @@ code {
   border-radius: 20px;
   border: 2px solid #57cc99;
   background: #b3e7ec;
-  right: 40%;
+  /* right: -10%; */
 }
 
 .logout-button:hover {
@@ -657,3 +657,11 @@ code {
   margin-right: 150px;
   margin-left: 80px;
 } */
+.buttons-container{
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  height: 25px;
+  width: 50%;
+  
+}
