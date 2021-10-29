@@ -4,7 +4,7 @@ import UnauthenticatedApp from './UnauthenticatedApp'
 import AuthenticatedApp from './AuthenticatedApp'
 import Header from './components/Header'
 import WelcomePage from './components/WelcomePage'
-import SeachUser from './components/SeachUser'
+
 import './App.css';
 
 function App() {

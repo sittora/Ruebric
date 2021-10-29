@@ -36,11 +36,12 @@ const handleSubmit = (event) => {
   return (
     <div className="login">
         {/* <h3 className="you-signedup"> You're Signed up</h3> */}
-    <form className="w-2/3 bg-white p-8 max-w-md space-y-4" onSubmit={handleSubmit}>
+    <form  onSubmit={handleSubmit}>
+        <div className="sign-up-form"> 
         <h1 className="signup-text">Sign Up</h1>
     <p>
         <label
-            className="block text-lg font-semibold"
+            className="username-signup"
             htmlFor="username"
         >
             Username
@@ -55,7 +56,7 @@ const handleSubmit = (event) => {
         </p>
     <p>
         <label
-            className="block text-lg font-semibold"
+            className="username-signup"
             htmlFor="password"
         >
             Password
@@ -86,6 +87,7 @@ const handleSubmit = (event) => {
         <p><button className="signup-button-two" type="submit">Sign Up</button></p>
         <p className="or-text-two">~  or ~</p>
         <p className="text-center"><Link className="login-link" to="/login">Log In</Link></p>
+        </div>
     </form>
     </div>
 )

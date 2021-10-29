@@ -42,11 +42,15 @@
 }
 .postsContainer{
   position: relative;
-  top: -92px;
+ 
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid #57cc99;
+  background-color: #e7f5f4;
+  height: 1050px;
+  overflow: auto;
+  margin-bottom: 30px;
+ 
 }
 .profileBtnContainer{
   position: relative;
@@ -78,10 +82,7 @@
   height: 200px;
   object-fit: cover;
 }
-.profileImage{
-  width: 100px;
-  height: 100px;
-}
+
 .profileDetailContainer{
   width: 300px;
   height: 500px;
@@ -114,12 +115,14 @@ justify-content: space-evenly;
 }
 .SearchUserDetails{
 position: relative;
-display: flex;
-justify-content: center;
+top: -30px;
+
 }
 .SearchPostContainer{
 display: flex;
 flex-direction: column;
+position: absolute;
+right: 250px;
 }
 .profileSearchUserDetail{
 position: absolute;
@@ -129,4 +132,77 @@ position: absolute;
 .input-container-for-comments {
   position: relative;
   top: 20px;
+}
+
+.submit-post-container{
+  position: relative;
+  top: 25px;
+}
+.all-posts-Container{
+  position: absolute;
+  top: 289px;
+}
+.header-post{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 400px;
+}
+.comment-container{
+  position: relative;
+  top: 20px;
+  margin-top: 10px;
+  max-height: 500px;
+  background-color: whitesmoke;
+  overflow: auto;
+}
+.comment-form{
+  margin: 20px 10px 60px;
+}
+.comment-authorName{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px
+
+}
+.like-dislike-btn{
+  color: red;
+}
+.likeNumber-and-button{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  width: 47px;
+}
+
+.each-post-container p{
+  margin: 10px;
+  
+}
+.eachComment{
+  border: 0.5px solid #7ac6e9;
+}
+.show-user-search-results{
+  position: relative;
+  top: -30px;
+  height: 600px;
+  background-color: red;
+}
+.your-profile-button{
+  min-width: 100px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  top: -30px;
 }

@@ -46,8 +46,9 @@ function CreateProfile({currentUser, setToggleUpdateProfile}){
         setFormData({...formData, [key]: event.target.value})
     }
         return (
+            
         <form onSubmit={handleCreate} >
-            <div className="update-profile-container">
+            <div class="profile-detail">
                 <h3 id="submitHeader">{currentUser.profile === null ? "Create Your Profile" : "Update Your Profile" }</h3>
                 <img className="profileImage"src={currentUser.profile === null ? pictureURL : (currentUser.profile.profile_url === "" ? pictureURL: currentUser.profile.profile_url ) } alt="profilePicture" />
             
@@ -91,6 +92,7 @@ function CreateProfile({currentUser, setToggleUpdateProfile}){
                 </div>
             </div>
         </form>
+      
         )
     }
 

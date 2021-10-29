@@ -1,21 +1,23 @@
-import React,{ useState} from 'react';
+import React from 'react';
 
-function UserSearchHandle({user, setToggleUserDetail, setCurrentSearchUser, toggleUserDetail}){
+function UserSearchHandle({user, setToggleUserDetail, setCurrentSearchUser, togglePostSubmit}){
 
 
 
 const pictureURL ="https://st2.depositphotos.com/5682790/10456/v/600/depositphotos_104564156-stock-illustration-male-user-icon.jpg"
 const profilePicture = user.profile === null? pictureURL : user.profile.profile_url
     
-function handleOnClickSearchUser(){
+ function handleOnClickSearchUser(){
 
     fetch(`/searchUser/${user.id}`)
     .then(res => res.json())
-    .then(userData => setCurrentSearchUser(userData))
-    setToggleUserDetail(true)
-}
-
+    .then(userData => {setCurrentSearchUser(userData) 
+    })
     
+    setToggleUserDetail(true)
+
+ }
+
     
     return <div className="UserSearch">
         <div className="UserName-Image">

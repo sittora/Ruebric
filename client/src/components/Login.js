@@ -32,10 +32,11 @@ return (
     <div className="login">
         <Redirect to="/" />
     <form className="w-2/3 bg-white p-8 max-w-md space-y-4" onSubmit={handleSubmit}>
+        <div className="Login-form">
         <h1 className="login-text">Login</h1>
         <p>
             <label 
-            className="username-text"
+            className="username-signup"
             htmlFor="username"
             >
             Username
@@ -45,12 +46,12 @@ return (
                 name="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="username-box"
+                className="username-signup-box"
             />
         </p>
         <p>
         <label 
-            className="password-text"
+            className="username-signup"
             htmlFor="password"
         >
             Password
@@ -60,12 +61,13 @@ return (
             name=""
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="password-box"
+            className="password-signup-box"
         />
         </p>
-        <p><button className="login-button" type="submit">Log In</button></p>
-        <p className="or-text">~  or ~</p>
+        <p><button className="signup-button-two" type="submit">Log In</button></p>
+        <p className="or-text-two">~  or ~</p>
         <p className="text-center"><Link className="signup-button" to="/signup">Sign Up</Link></p>
+        </div>
     </form>
     </div>
 )

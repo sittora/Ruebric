@@ -1,9 +1,9 @@
 import React,{ useState, useEffect} from 'react'
 import CommentForm from './CommentForm'
 
-function PostHandle({post, currentUser, setTogglePostSubmit, currentSearchUser}){
+function PostHandle({post, currentUser, setTogglePostSubmit, currentSearchUser, togglePostSubmit}){
     const {image_url, like, text_post, id, comments} = post
-    console.log(post)
+
     const [handleLike, setHandleLike]= useState(like)
     const [handleBtnLike, setHandleBtnLike] = useState(false)
     const [handleBtnComment, setHandleBtnComment] = useState(false)
@@ -32,7 +32,7 @@ function PostHandle({post, currentUser, setTogglePostSubmit, currentSearchUser})
             },
             body: JSON.stringify({like: handleLike})
         })
-    },[handleLike])
+    },[handleLike, togglePostSubmit])
 function handleDeletePost(){
         fetch(`/posts/${id}`,{
             method: 'DELETE'
@@ -45,14 +45,15 @@ function handleDeletePost(){
 
     
     return <div className="each-post-container">
-        <span >
-            <h3>{currentUser.user_name}</h3>
+        <div className="header-post" >
+            <h3>{currentUser.user_name === currentSearchUser.user_name || currentSearchUser.length === 0 ? currentUser.user_name : currentSearchUser.user_name}</h3>
             {/* //<button className="delete-button" onClick={handleDeletePost}>Delete</button> */}
             {currentUser.user_name === currentSearchUser.user_name || currentSearchUser.length === 0? <button className="delete-button" onClick={handleDeletePost}>Delete</button> : null}
-            <p>{text_post}</p>
+            </div>
+            <p className="text-post-container">{text_post}</p>
             {image_url === "" ? null : <img src={image_url} alt={currentUser.user_name} className="imageContainer"></img>}
             
-        </span>
+        
         <span className="likeAndComment">
         <p>{handleLike}</p>
         <p>{comments.length}</p>

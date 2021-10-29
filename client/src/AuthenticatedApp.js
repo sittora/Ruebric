@@ -11,11 +11,11 @@ function AuthenticatedApp({setCurrentUser, currentUser, setToggleUpdateProfile})
   const [togglePostSubmit, setTogglePostSubmit]= useState(false)
   const [toggleCreateProfile, setToggleCreateProfile] = useState(false)
   const [searchUser, setSearchUser] = useState([])
-  const [toggleSeach, setToggleSeach]= useState(true)
+  const [toggleSeach, setToggleSeach]= useState(false)
   const [currentSearchUser, setCurrentSearchUser] = useState([])
   const [toggleUserDetail, setToggleUserDetail] = useState(false)
-  const [hideShow, setHideShow] = useState(false)
-  console.log(currentUser)
+  //const [hideShow, setHideShow] = useState(false)
+  
     const handleLogout = () => {
         fetch(`/logout`, {
           method: 'DELETE',
@@ -46,31 +46,40 @@ const displayPost = userPost === undefined || userPost.status === 404 ? null : u
                                                                               currentUser={currentUser}
                                                                               setTogglePostSubmit={setTogglePostSubmit}
                                                                               currentSearchUser={currentSearchUser}
+                                                                              togglePostSubmit={togglePostSubmit}
                                                                               />)
-     
-const displayUser = searchUser === null ? 'No Matching User' : searchUser.map(user => <UserSearchHandle key={user.id} user={user} setCurrentSearchUser={setCurrentSearchUser} setToggleUserDetail={setToggleUserDetail} />)
+
+const displayUser = searchUser.length === 0 ? <h1>No Matching User </h1>: searchUser.map(user => <UserSearchHandle key={user.id} user={user} setCurrentSearchUser={setCurrentSearchUser} setToggleUserDetail={setToggleUserDetail} togglePostSubmit={togglePostSubmit} />)
+
 return <div className="displayLoginUserData">
         <div className="Search-Bar-Box">
-        <SeachUser setSearchUser={setSearchUser} setToggleSeach={setToggleSeach} setToggleUserDetail={setToggleUserDetail} />
-        <button onClick={() => {
-          setCurrentSearchUser([])
-          setToggleSeach(false)}}> Profile</button>
+            <SeachUser setSearchUser={setSearchUser} setToggleSeach={setToggleSeach} setToggleUserDetail={setToggleUserDetail} />
+            
         </div>
-        {toggleSeach === true ? null : <div className="profileBtnContainer">
-            <h4>You are now logged in as {currentUser.user_name}</h4>
-            <div className="buttons-container">
-            <button className="update-your-profile-button" onClick={handleCreateProfile}>{currentUser.profile === null ? "Create Your Profile" : "Update Your Profile"}</button>
-            <button className="logout-button" onClick={handleLogout}>Logout</button>
-            {toggleCreateProfile === false ? currentUser.profile === null ? null : <ProfileDetails currentUser={currentUser} /> : <CreateProfile currentUser={currentUser} setToggleUpdateProfile={setToggleUpdateProfile}/>}
-            </div>
-        </div>}
-
-        {toggleSeach === true ? (toggleUserDetail === false ? displayUser : <DetailsUserSearch currentSearchUser={currentSearchUser} currentUser={currentUser} setTogglePostSubmit={setTogglePostSubmit}/>) :
+        {toggleSeach === true ?  <button onClick={() => {
+                          setCurrentSearchUser([])
+                          setToggleSeach(false)}} className="your-profile-button"> Your Profile</button> : 
+        
+            <div className="profile-detail-container">
+                
+                      <h4>You are now logged in as {currentUser.user_name}</h4>
+                  <div className="buttons-container">
+                      <button className="update-your-profile-button" onClick={handleCreateProfile}>{currentUser.profile === null ? "Create Your Profile" : "Update Your Profile"}</button>
+                     
+                      <button className="logout-button" onClick={handleLogout}>Logout</button>
+                      
+                  </div>
+                      {toggleCreateProfile === false ? currentUser.profile === null ? null : <ProfileDetails currentUser={currentUser} /> : <CreateProfile currentUser={currentUser} setToggleUpdateProfile={setToggleUpdateProfile}/>}
+           
+            </div>}
+        
+        {toggleSeach === true ? (toggleUserDetail === false ? <div className="show-user-search-results">{displayUser}</div> : <DetailsUserSearch currentSearchUser={currentSearchUser} currentUser={currentUser} setTogglePostSubmit={setTogglePostSubmit}/>) :
         <div className="postsContainer">
          
           <PostForm currentUser={currentUser} setTogglePostSubmit={setTogglePostSubmit} />
-          
+          <div className="all-posts-Container">
           {displayPost}
+          </div>
         </div>}
     </div>
 }

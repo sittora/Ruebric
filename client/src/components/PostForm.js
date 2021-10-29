@@ -38,10 +38,10 @@ function handleOnchange(e){
 }
     //   console.log(postMessage)
 
-    return <div>
+    return <div className="submit-post-container">
         <form className="authenticated-form" onSubmit={handleSubmitPost}>
             <div className="input-container"> 
-                <label id="descriptionForm" >Description: </label>
+                
                 <textarea type="text" id="descriptionBox" className="description-box" name="text_post" value={postMessage.text_post} onChange={handleOnchange} placeholder="Share your thoughts"></textarea>
             </div>
             <div className="input-container"> 

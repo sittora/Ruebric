@@ -37,17 +37,17 @@ useEffect(() =>{
 
 
 
-return<div>
-        <span className="comment-authorName">
-            <h4>{comments_author}</h4>
+return<div className="eachComment">
+        <div className="comment-authorName">
+            <h3>{comments_author}</h3>
             <button onClick={handleDeleteComment}>x</button>
-        </span>
-        <p>{comment_text}</p>
+        </div>
+        <p className="comment-text">{comment_text}</p>
         {image_url.length === 0 ? null : <img className="commentPicture" src= {image_url} />}
-        <span>
+        <div className="likeNumber-and-button">
         <p>{handleBtnLike}</p>
-        <button onClick={handleLikeBtn}>{toggleLikeDislike === false ? 'like' : 'dislike'}</button>
-        </span>
+        <button className="like-dislike-btn" onClick={handleLikeBtn}>{toggleLikeDislike === false ? '❤' : '❤'}</button>
+        </div>
 </div>
 
 }

@@ -1,4 +1,4 @@
-import React,{ useState, useEffect} from 'react';
+import React,{ useState} from 'react';
 
 function SearchUser({setSearchUser, setToggleSeach, setToggleUserDetail}){
 
@@ -27,8 +27,8 @@ function handleSearchSubmit(e){
 
     return <div className="inputSearch">
         <form onSubmit={handleSearchSubmit}>
-        <label className="search-user-text">Search User: </label>
-        <input className="searchBar" value={search} onChange={(e) => setSearch(e.target.value)}/>
+        
+        <input className="searchBar" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search User" />
         <input type="submit"  className="search-button" value="Search" />
         </form>
     </div>
