@@ -1,7 +1,7 @@
 import React,{ useState, useEffect} from 'react';
 
-function SearchUser(){
-const [allUser, setAllUser] = useState([])
+function SearchUser({setSearchUser, setToggleSeach, setToggleUserDetail}){
+
 const [search, setSearch] = useState()
 
 
@@ -11,8 +11,15 @@ function handleSearchSubmit(e){
    
         fetch('/users')
     .then(r => r.json())
-    .then(userData => setAllUser(userData))
-    
+    .then(userData => {
+        
+        const filterSearch = userData === undefined || search === undefined? null : userData.filter(user => user.user_name.toLowerCase().includes(search.toLowerCase()))
+        setSearchUser(filterSearch)
+        
+    })
+    setToggleUserDetail(false)
+    setToggleSeach(true)
+    setSearch("")
    
 }
 

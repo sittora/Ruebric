@@ -28,6 +28,16 @@ class UsersController < ApplicationController
         render json: {error: "no active session"}, status: :unprocessable_entity
       end
     end
+
+    def search
+      user = User.find_by(id: params[:id])
+      if user
+        render json: user, include: ['posts','posts.comments', 'profile'] ,status: :ok
+      else 
+        render json: {error: "no active user"}, status: 404
+      end
+    end
+
     def follow
       @user = User.find(params[:id])
       current_user.followees << @user

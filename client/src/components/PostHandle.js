@@ -1,7 +1,7 @@
 import React,{ useState, useEffect} from 'react'
 import CommentForm from './CommentForm'
 
-function PostHandle({post, currentUser, setTogglePostSubmit}){
+function PostHandle({post, currentUser, setTogglePostSubmit, currentSearchUser}){
     const {image_url, like, text_post, id, comments} = post
     console.log(post)
     const [handleLike, setHandleLike]= useState(like)
@@ -47,7 +47,8 @@ function handleDeletePost(){
     return <div className="each-post-container">
         <span >
             <h3>{currentUser.user_name}</h3>
-            <button className="delete-button" onClick={handleDeletePost}>Delete</button>
+            {/* //<button className="delete-button" onClick={handleDeletePost}>Delete</button> */}
+            {currentUser.user_name === currentSearchUser.user_name || currentSearchUser.length === 0? <button className="delete-button" onClick={handleDeletePost}>Delete</button> : null}
             <p>{text_post}</p>
             {image_url === "" ? null : <img src={image_url} alt={currentUser.user_name} className="imageContainer"></img>}
             

@@ -97,3 +97,33 @@
 
 } */
 
+.UserSearch{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 100px;
+}
+.imageSearchUser{
+height: 100px
+}
+.UserName-Image{
+
+display: flex;
+align-items: center;
+width: 500px;
+justify-content: space-evenly;
+}
+.SearchUserDetails{
+position: relative;
+display: flex;
+justify-content: center;
+}
+.SearchPostContainer{
+display: flex;
+flex-direction: column;
+}
+.profileSearchUserDetail{
+position: absolute;
+  left: 10px;
+}
