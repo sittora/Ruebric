@@ -22,10 +22,10 @@ const profilePicture = user.profile === null? pictureURL : user.profile.profile_
     return <div className="UserSearch">
         <div className="UserName-Image">
             
-            <img onClick={handleOnClickSearchUser} className="imageSearchUser" src={profilePicture} alt={user.user_name}/>
+            <img onClick={handleOnClickSearchUser} className="image-search-user" src={profilePicture} alt={user.user_name}/>
             {user.user_name}
             <div className="FollowOrUnFollowButton">
-                <button >Follow Or Unfollow</button>
+                <button className="follow-button">Follow Or Unfollow</button>
             </div>
         </div> 
     </div>

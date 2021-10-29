@@ -188,7 +188,8 @@ position: absolute;
   position: relative;
   top: -30px;
   height: 600px;
-  background-color: red;
+  background: rgb(27,77,128);
+  background: radial-gradient(circle, rgba(27,77,128,1) 0%, rgba(148,215,233,1) 100%);
 }
 .your-profile-button{
   min-width: 100px;
@@ -206,3 +207,4 @@ position: absolute;
   background: #b3e7ec;
   top: -30px;
 }
+

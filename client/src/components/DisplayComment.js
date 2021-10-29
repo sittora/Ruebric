@@ -40,7 +40,7 @@ useEffect(() =>{
 return<div className="eachComment">
         <div className="comment-authorName">
             <h3>{comments_author}</h3>
-            <button onClick={handleDeleteComment}>x</button>
+            <button className="close-comment-button" onClick={handleDeleteComment}>x</button>
         </div>
         <p className="comment-text">{comment_text}</p>
         {image_url.length === 0 ? null : <img className="commentPicture" src= {image_url} />}

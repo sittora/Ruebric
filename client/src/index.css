@@ -694,10 +694,7 @@ input {
 .buttons-container{
   position: absolute;
   top: 63px;
-  border-radius: 20px;
-  
-  
-  
+  border-radius: 20px; 
 }
 
 .profileImage {
@@ -705,4 +702,77 @@ input {
   height: 134px;
   border-radius: 50%;
   border: #57cc99 3px solid;
+}
+
+.follow-button {
+  min-width: 100px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: 3%;
+}
+
+.follow-button:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+.image-search-user {
+  width: 134px;
+  height: 134px;
+  border-radius: 50%;
+  border: #57cc99 3px solid;
+}
+
+.close-comment-button {
+  min-width: 20px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: -2%;
+}
+
+.close-comment-button:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+.like-dislike-btn {
+  min-width: 40px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: -2%;
+}
+
+.like-dislike-btn:hover {
+  background: #fff;
+  color: #57cc99;
 }
