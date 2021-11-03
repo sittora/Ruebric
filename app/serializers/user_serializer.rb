@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :user_name
   has_one :profile
-  has_many :posts
+  has_many :plans
 end

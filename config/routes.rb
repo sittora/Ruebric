@@ -2,14 +2,10 @@ Rails.application.routes.draw do
   
   
   resources :users, only: [:index]
-  resources :comments
-  resources :posts
-  resources :profiles do 
-    resources :friend_lists
-  end
+  resources :activities
+  resources :plans
+  resources :profiles
   get '/searchUser/:id', to: 'users#search'
-  post '/users/:id/follow', to: "users#follow", as: "follow_user"
-  post '/users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
   get '/me', to: 'users#show'
   post '/login', to: 'sessions#create'
   post '/signup', to: 'users#create'
