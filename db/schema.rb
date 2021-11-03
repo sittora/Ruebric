@@ -15,52 +15,36 @@ ActiveRecord::Schema.define(version: 2021_10_28_054815) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "comments", force: :cascade do |t|
-    t.string "comment_text"
-    t.string "image_url"
-    t.integer "like"
-    t.bigint "post_id"
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.integer "start_time"
+    t.integer "end_time"
+    t.string "description"
+    t.bigint "plan_id"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "comments_author"
-    t.index ["post_id"], name: "index_comments_on_post_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
+    t.string "activities_author"
+    t.index ["plan_id"], name: "index_activities_on_plan_id"
+    t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
-  create_table "follows", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followee_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "friend_lists", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "friend_id"
-    t.bigint "profile_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["profile_id"], name: "index_friend_lists_on_profile_id"
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string "text_post"
-    t.string "image_url"
-    t.integer "like"
+  create_table "plans", force: :cascade do |t|
+    t.integer "date"
+    t.integer "start_time"
+    t.integer "end_time"
+    t.string "location"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.string "nick_name"
     t.string "name"
-    t.integer "birthday"
     t.string "location"
-    t.string "occupation"
-    t.string "bio"
+    t.string "preferences"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
