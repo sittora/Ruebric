@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     def search
       user = User.find_by(id: params[:id])
       if user
-        render json: user, include: ['posts','posts.comments', 'profile'] ,status: :ok
+        render json: user, include: ['plans','plans.activities', 'profile'] ,status: :ok
       else 
         render json: {error: "no active user"}, status: 404
       end

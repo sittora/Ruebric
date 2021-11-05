@@ -15,9 +15,9 @@ code {
   padding: 0 115px;
   padding-top: 90px; 
   height: 500px;
-  width: 40%;
-  background: rgb(179,231,236); 
-  background: linear-gradient(180deg, rgba(179,231,236,1) 0%, rgba(227,244,247,1) 100%);
+  width: 25%;
+  background: rgb(197,70,88);
+  background: linear-gradient(180deg, rgba(197,70,88,1) 0%, rgba(222,127,140,1) 100%);  
 }
 
 .welcome-container{
@@ -29,9 +29,9 @@ code {
   height: 410px;
   width: 46.5%;
   
-  background-image: url(./logo-background.png);
+  background-image: url(./light_bulb_background3.png);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 80%;
   /* border-radius: 90px; */
 }
 
@@ -52,9 +52,9 @@ code {
   font-size: 20px;
   color: #b3e7ec;
   text-decoration: none; 
-  background-color: #b3e7ec; 
+  background-color: #C54658; 
   padding-bottom: 5px;
-  border: solid #55c9d3 1px;
+  border: solid white 1px;
 }
 
 .header-container img{
@@ -117,12 +117,12 @@ code {
   outline: none;
   border-radius: 20px;
   border: 2px solid #57cc99;
-  background: #b3e7ec;
+  background: white;
   left: 31%;
 }
 
 .login-button:hover {
-  color: #57cc99;
+  color: white;
 }
 
 .or-text {
@@ -138,11 +138,12 @@ code {
 .Login-form{
   position: absolute;
   right: 90px;
+  color: white;
 }
 .signup-button {
   text-align: center;
   position: relative;
-  color: #57cc99;
+  color: white;
   display: block;
   right: 20px;
 }
@@ -183,6 +184,8 @@ code {
   
 }
 
+
+
 .password-signup-confirmation-box {
   background-color: white;
   border: solid black 1px;
@@ -215,8 +218,8 @@ code {
   display: inline-block;
   outline: none;
   border-radius: 20px;
-  border: 2px solid #57cc99;
-  background: #b3e7ec;
+  border: 2px solid black;
+  background: white;
   left: 31%;
 }
 
@@ -257,7 +260,7 @@ code {
 
 .searchBar {
   background-color: white;
-  border: 2px solid #57cc99;
+  border: 2px solid white;
   border-radius: 20px;
   color: black;
   justify-content: center;
@@ -497,7 +500,7 @@ code {
   border-radius: 20px;
   height: 80px;
   width: 400px;
-  border: 2px solid #57cc99;
+  border: 2px solid white;
   background-color: rgba(207, 231, 236, 0.3);
   
 }
@@ -508,7 +511,7 @@ code {
   border-radius: 20px;
   height: 25px;
   width: 400px;
-  border: 2px solid #57cc99;
+  border: 2px solid white;
   background-color: rgba(207, 231, 236, 0.3);
   margin-left: 1px;
 }
@@ -519,7 +522,7 @@ code {
   border-radius: 20px;
   height: 60px;
   width: 70%;
-  border: 2px solid #57cc99;
+  border: 2px solid white;
   background-color: rgba(207, 231, 236, 0.3);
 }
 
@@ -529,7 +532,7 @@ code {
   border-radius: 20px;
   height: 25px;
   width: 67%;
-  border: 2px solid #57cc99;
+  border: 2px solid white;
   background-color: rgba(207, 231, 236, 0.3);
   top: 20px;
 }
@@ -552,7 +555,7 @@ code {
   width: 134px;
   height: 134px;
   border-radius: 50%;
-  border: #57cc99 3px solid;
+  border: white 3px solid;
 }
 label {
   display: flex;

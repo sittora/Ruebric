@@ -1,11 +1,11 @@
 import React,{ useState, useEffect} from 'react';
 
-function DisplayComment({comment, setTogglePostSubmit}){
-const {comment_text, comments_author, image_url, like, id} = comment 
+function DisplayActivity({activity, setTogglePostSubmit}){
+const {activity_text, activities_author, image_url, like, id} = activity 
 const [toggleLikeDislike, setToggleLikeDislike] = useState(false)
 const [handleBtnLike, setHandleBtnLike] = useState(like)
-function handleDeleteComment(){
-    fetch(`/comments/${id}`,{
+function handleDeleteActivity(){
+    fetch(`/activities/${id}`,{
         method: 'DELETE'
     })
     setTogglePostSubmit(togglePostSubmit => !togglePostSubmit)
@@ -26,7 +26,7 @@ function handleLikeBtn(){
 
 }
 useEffect(() =>{
-    fetch(`/comments/${id}`,{
+    fetch(`/activities/${id}`,{
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -37,13 +37,13 @@ useEffect(() =>{
 
 
 
-return<div className="eachComment">
-        <div className="comment-authorName">
-            <h3>{comments_author}</h3>
-            <button className="close-comment-button" onClick={handleDeleteComment}>x</button>
+return<div className="eachActivity">
+        <div className="activity-authorName">
+            <h3>{activities_author}</h3>
+            <button className="close-activity-button" onClick={handleDeleteActivity}>x</button>
         </div>
-        <p className="comment-text">{comment_text}</p>
-        {image_url.length === 0 ? null : <img className="commentPicture" src= {image_url} />}
+        <p className="activity-text">{activity_text}</p>
+        {image_url.length === 0 ? null : <img className="activityPicture" src= {image_url} />}
         <div className="likeNumber-and-button">
         <p>{handleBtnLike}</p>
         <button className="like-dislike-btn" onClick={handleLikeBtn}>{toggleLikeDislike === false ? '❤' : '❤'}</button>
@@ -52,4 +52,4 @@ return<div className="eachComment">
 
 }
 
-export default DisplayComment;
+export default DisplayActivity;

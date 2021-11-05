@@ -1,13 +1,16 @@
 import React, {useState, useEffect} from 'react';
-import PostForm from './components/PostForm';
-import PostHandle from './components/PostHandle';
+import PlanForm from './components/PlanForm';
+import PlanHandle from './components/PlanHandle';
 import CreateProfile from './components/CreateProfile';
 import ProfileDetails from './components/ProfileDetails';
 import SeachUser from './components/SeachUser'
 import UserSearchHandle from './components/UserSearchHandle';
 import DetailsUserSearch from './components/DetailsUserSearch';
+import Popup from "./components/Popup";
+
+
 function AuthenticatedApp({setCurrentUser, currentUser, setToggleUpdateProfile}){
-  const [userPost, setUserPost] = useState()
+  const [userPlan, setUserPlan] = useState()
   const [togglePostSubmit, setTogglePostSubmit]= useState(false)
   const [toggleCreateProfile, setToggleCreateProfile] = useState(false)
   const [searchUser, setSearchUser] = useState([])
@@ -15,6 +18,10 @@ function AuthenticatedApp({setCurrentUser, currentUser, setToggleUpdateProfile})
   const [currentSearchUser, setCurrentSearchUser] = useState([])
   const [toggleUserDetail, setToggleUserDetail] = useState(false)
   //const [hideShow, setHideShow] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    }
   
     const handleLogout = () => {
         fetch(`/logout`, {
@@ -30,9 +37,9 @@ function AuthenticatedApp({setCurrentUser, currentUser, setToggleUpdateProfile})
       }
 
 useEffect(() =>{
-  fetch(`/posts`)
+  fetch(`/plans`)
   .then(r=>r.json())
-  .then(postsData => setUserPost(postsData))
+  .then(plansData => setUserPlan(plansData))
 },[togglePostSubmit])
 
 
@@ -40,9 +47,9 @@ function handleCreateProfile(){
   setToggleCreateProfile(toggleCreateProfile => !toggleCreateProfile)
 }
 
-// console.log(userPost)
-const displayPost = userPost === undefined || userPost.status === 404 ? null : userPost.map(post => <PostHandle 
-                                                                              key={post.id} post={post}  
+// console.log(userPlan)
+const displayPlan = userPlan === undefined || userPlan.status === 404 ? null : userPlan.map(plan => <PlanHandle 
+                                                                              key={plan.id} plan={plan}  
                                                                               currentUser={currentUser}
                                                                               setTogglePostSubmit={setTogglePostSubmit}
                                                                               currentSearchUser={currentSearchUser}
@@ -52,11 +59,14 @@ const displayPost = userPost === undefined || userPost.status === 404 ? null : u
 const displayUser = searchUser.length === 0 ? <h1>No Matching User </h1>: searchUser.map(user => <UserSearchHandle key={user.id} user={user} setCurrentSearchUser={setCurrentSearchUser} setToggleUserDetail={setToggleUserDetail} togglePostSubmit={togglePostSubmit} />)
 
 return <div className="displayLoginUserData">
-        <div className="Search-Bar-Box">
+        
+        {/* search bar */}
+        {/* <div className="Search-Bar-Box">
             <SeachUser setSearchUser={setSearchUser} setToggleSeach={setToggleSeach} setToggleUserDetail={setToggleUserDetail} />
-            
-        </div>
-        {toggleSeach === true ?  <button onClick={() => {
+        </div> */}
+
+        {/* display user details */}
+        {/* {toggleSeach === true ?  <button onClick={() => {
                           setCurrentSearchUser([])
                           setToggleSeach(false)}} className="your-profile-button"> Your Profile</button> : 
         
@@ -71,14 +81,25 @@ return <div className="displayLoginUserData">
                   </div>
                       {toggleCreateProfile === false ? currentUser.profile === null ? null : <ProfileDetails currentUser={currentUser} /> : <CreateProfile currentUser={currentUser} setToggleUpdateProfile={setToggleUpdateProfile}/>}
            
-            </div>}
+            </div>} */}
         
         {toggleSeach === true ? (toggleUserDetail === false ? <div className="show-user-search-results">{displayUser}</div> : <DetailsUserSearch currentSearchUser={currentSearchUser} currentUser={currentUser} setTogglePostSubmit={setTogglePostSubmit}/>) :
-        <div className="postsContainer">
-         
-          <PostForm currentUser={currentUser} setTogglePostSubmit={setTogglePostSubmit} />
-          <div className="all-posts-Container">
-          {displayPost}
+        
+        
+        <div className="plansContainer">
+          {/* <PlanForm currentUser={currentUser} setTogglePostSubmit={setTogglePostSubmit} /> */}
+          {/* Create will toggle popup with create form */}
+          <button onClick={togglePopup}>Create</button>
+          {isOpen && <Popup
+            content={<>
+              <h1>Create Plan</h1> 
+              <PlanForm currentUser={currentUser} setTogglePostSubmit={setTogglePostSubmit} handleClose={togglePopup}/>
+            </>}
+            handleClose={togglePopup}
+          />}
+          
+          <div className="all-plans-Container">
+            {displayPlan}
           </div>
         </div>}
     </div>
