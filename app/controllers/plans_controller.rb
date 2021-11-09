@@ -1,5 +1,6 @@
 class PlansController < ApplicationController
-    
+    before_action :get_plan, only: [:show, :update, :destroy]
+
     def index
         if current_user 
             render json: current_user.plans, status: :ok
@@ -41,8 +42,8 @@ class PlansController < ApplicationController
 
     def show
         if @plan
-            puts "************WIWWWW*********"
-          render json: @plan.to_json(except: [:created_at, :updated_at])
+            # render json: @plan
+            render json: @plan.to_json(except: [:created_at, :updated_at], include: [:activities])
         else
           render json: { error: "Plan not found" }, status: :not_found
         end

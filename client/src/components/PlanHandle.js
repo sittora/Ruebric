@@ -1,5 +1,6 @@
 import React,{ useState, useEffect} from 'react'
 import ActivityForm from './ActivityForm'
+import {Link} from 'react-router-dom'
 
 function PlanHandle({plan, currentUser, setTogglePostSubmit, currentSearchUser, togglePostSubmit}){
     const {date, start_time, end_time, location, id} = plan
@@ -30,6 +31,7 @@ function PlanHandle({plan, currentUser, setTogglePostSubmit, currentSearchUser, 
             <p className="text-plan-container">Start Time: {start_time}</p>
             <p className="text-plan-container">End Time: {end_time}</p>
             {/* todo: update handleDelete to handleEdit below >>> */}
+            <Link  to={{pathname: `/plans/${id}`}}>More Details</Link>
             <button className="edit-button" onClick={handleDeletePlan}>Edit</button>
             {currentUser.user_name === currentSearchUser.user_name || currentSearchUser.length === 0? <button className="delete-button" onClick={handleDeletePlan}>Delete</button> : null}
             </div>

@@ -1,18 +1,19 @@
 import React,{ useState, useEffect} from 'react'
 import { BrowserRouter as Router, Switch, Route, useParams } from "react-router-dom";
-import ActivityForm from './ActivityForm'
+import ActivitySearch from './ActivitySearch'
 
 function PlanShow({id, currentUser, setTogglePostSubmit, currentSearchUser, togglePostSubmit}){
     const [plan, setPlan] = React.useState(null);
+    const other_id = 15; // todo: get this from url
 
     React.useEffect(() => {
-    fetch(`/plans/${id}`)
+    fetch(`/plans/${other_id}`)
         .then((res) => res.json())
         .then((data) => {
             console.log(data)
             setPlan(data);
         });
-    }, [id]);
+    }, [other_id]);
 
     if (!plan) return null;
 
@@ -44,7 +45,8 @@ function PlanShow({id, currentUser, setTogglePostSubmit, currentSearchUser, togg
             <p className="text-plan-container">Start Time: {start_time}</p>
             <p className="text-plan-container">End Time: {end_time}</p>
             {/* todo: update handleDelete to handleEdit below >>> */}
-            <button className="edit-button" onClick={handleDeletePlan}>Edit</button>
+            {/* <button className="edit-button" onClick={handleDeletePlan}>Edit</button> */}
+            <ActivitySearch currentUser={currentUser} currentPlan={plan} togglePostSubmit={togglePostSubmit}/>
             {currentUser.user_name === currentSearchUser.user_name || currentSearchUser.length === 0? <button className="delete-button" onClick={handleDeletePlan}>Delete</button> : null}
             </div>
             {/* {image_url === "" ? null : <img src={image_url} alt={currentUser.user_name} className="imageContainer"></img>} */}

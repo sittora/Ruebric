@@ -73,12 +73,17 @@ function AuthenticatedApp({setCurrentUser, currentUser, setToggleUpdateProfile})
             <Route exact path="/plans">
               <PlanList currentUser={currentUser} />
             </Route>
+            <Route exact path="/plans/:id">
+              <PlanShow currentUser={currentUser} togglePostSubmit={setTogglePostSubmit} currentSearchUser={currentSearchUser} />
+            </Route>
             {/* <Route path="/plans/:id" component={PlanShow} currentUser={currentUser} /> */}
-            <Route exact path="/plans/:id" render={(props) => {
+            {/* <Route exact path="/plans/:id" render={(props) => {
                 props['currentUser'] = currentUser;
+                props['togglePostSubmit'] = setTogglePostSubmit;
+                props['currentSearchUser'] = currentSearchUser;
                 <PlanShow {...props} />
               } 
-            } />
+            } /> */}
             <Redirect to="/" />
         </Switch>
     </div>
