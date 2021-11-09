@@ -7,7 +7,6 @@ class ProfilesController < ApplicationController
 
         # GET /profiles/:id
     def show
-
         if @profile
           render json: @profile.to_json(except: [:created_at, :updated_at])
         else

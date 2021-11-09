@@ -1,8 +1,20 @@
 import React,{ useState, useEffect} from 'react'
+import { BrowserRouter as Router, Switch, Route, useParams } from "react-router-dom";
 import ActivityForm from './ActivityForm'
 
-function PlanHandle({plan, currentUser, setTogglePostSubmit, currentSearchUser, togglePostSubmit}){
-    const {date, start_time, end_time, location, id} = plan
+function PlanShow({id, currentUser, setTogglePostSubmit, currentSearchUser, togglePostSubmit}){
+    const [plan, setPlan] = React.useState(null);
+
+    React.useEffect(() => {
+    fetch(`/plans/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+            setPlan(data);
+        });
+    }, [id]);
+
+    if (!plan) return null;
 
     // useEffect(()=>{
     //     fetch(`/plans/${id}`,{
@@ -14,8 +26,10 @@ function PlanHandle({plan, currentUser, setTogglePostSubmit, currentSearchUser, 
     //     })
     // },[togglePostSubmit])
 
+    const {date, start_time, end_time, location, plan_id} = plan
+
     function handleDeletePlan(){
-        fetch(`/plans/${id}`,{
+        fetch(`/plans/${plan_id}`,{
             method: 'DELETE'
         })
     
@@ -39,4 +53,4 @@ function PlanHandle({plan, currentUser, setTogglePostSubmit, currentSearchUser, 
 }
 
 
-export default PlanHandle
+export default PlanShow

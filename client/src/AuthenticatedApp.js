@@ -1,64 +1,47 @@
 import React, {useState, useEffect} from 'react';
-import PlanForm from './components/PlanForm';
-import PlanHandle from './components/PlanHandle';
+import { Switch, Route, Redirect, useParams } from 'react-router-dom'
+
+import PlanList from './components/PlanList';
+import PlanShow from './components/PlanShow';
 import CreateProfile from './components/CreateProfile';
 import ProfileDetails from './components/ProfileDetails';
 import SeachUser from './components/SeachUser'
 import UserSearchHandle from './components/UserSearchHandle';
 import DetailsUserSearch from './components/DetailsUserSearch';
-import Popup from "./components/Popup";
 
 
 function AuthenticatedApp({setCurrentUser, currentUser, setToggleUpdateProfile}){
-  const [userPlan, setUserPlan] = useState()
   const [togglePostSubmit, setTogglePostSubmit]= useState(false)
   const [toggleCreateProfile, setToggleCreateProfile] = useState(false)
   const [searchUser, setSearchUser] = useState([])
   const [toggleSeach, setToggleSeach]= useState(false)
   const [currentSearchUser, setCurrentSearchUser] = useState([])
+
   const [toggleUserDetail, setToggleUserDetail] = useState(false)
   //const [hideShow, setHideShow] = useState(false)
-  const [isOpen, setIsOpen] = useState(false);
-    const togglePopup = () => {
-        setIsOpen(!isOpen);
-    }
   
-    const handleLogout = () => {
-        fetch(`/logout`, {
-          method: 'DELETE',
-          credentials: 'include'
-        })
-          .then(res => {
-            if (res.ok) {
-              setCurrentUser(null)
-            
-            }
-          })
+  const handleLogout = () => {
+    fetch(`/logout`, {
+      method: 'DELETE',
+      credentials: 'include'
+    })
+    .then(res => {
+      if (res.ok) {
+        setCurrentUser(null)
+      
       }
+    })
+  }
 
-useEffect(() =>{
-  fetch(`/plans`)
-  .then(r=>r.json())
-  .then(plansData => setUserPlan(plansData))
-},[togglePostSubmit])
+  function handleCreateProfile(){
+    setToggleCreateProfile(toggleCreateProfile => !toggleCreateProfile)
+  }
 
+  const displayUser = searchUser.length === 0 ? <h1>No Matching User </h1>: searchUser.map(user => <UserSearchHandle key={user.id} user={user} setCurrentSearchUser={setCurrentSearchUser} setToggleUserDetail={setToggleUserDetail} togglePostSubmit={togglePostSubmit} />)
 
-function handleCreateProfile(){
-  setToggleCreateProfile(toggleCreateProfile => !toggleCreateProfile)
-}
+  return ( 
 
-// console.log(userPlan)
-const displayPlan = userPlan === undefined || userPlan.status === 404 ? null : userPlan.map(plan => <PlanHandle 
-                                                                              key={plan.id} plan={plan}  
-                                                                              currentUser={currentUser}
-                                                                              setTogglePostSubmit={setTogglePostSubmit}
-                                                                              currentSearchUser={currentSearchUser}
-                                                                              togglePostSubmit={togglePostSubmit}
-                                                                              />)
-
-const displayUser = searchUser.length === 0 ? <h1>No Matching User </h1>: searchUser.map(user => <UserSearchHandle key={user.id} user={user} setCurrentSearchUser={setCurrentSearchUser} setToggleUserDetail={setToggleUserDetail} togglePostSubmit={togglePostSubmit} />)
-
-return <div className="displayLoginUserData">
+    <div className="displayLoginUserData">
         
         {/* search bar */}
         {/* <div className="Search-Bar-Box">
@@ -83,26 +66,23 @@ return <div className="displayLoginUserData">
            
             </div>} */}
         
-        {toggleSeach === true ? (toggleUserDetail === false ? <div className="show-user-search-results">{displayUser}</div> : <DetailsUserSearch currentSearchUser={currentSearchUser} currentUser={currentUser} setTogglePostSubmit={setTogglePostSubmit}/>) :
-        
-        
-        <div className="plansContainer">
-          {/* <PlanForm currentUser={currentUser} setTogglePostSubmit={setTogglePostSubmit} /> */}
-          {/* Create will toggle popup with create form */}
-          <button onClick={togglePopup}>Create</button>
-          {isOpen && <Popup
-            content={<>
-              <h1>Create Plan</h1> 
-              <PlanForm currentUser={currentUser} setTogglePostSubmit={setTogglePostSubmit} handleClose={togglePopup}/>
-            </>}
-            handleClose={togglePopup}
-          />}
-          
-          <div className="all-plans-Container">
-            {displayPlan}
-          </div>
-        </div>}
+        <Switch>
+            <Route exact path="/">
+                <ProfileDetails currentUser={currentUser} />
+            </Route>
+            <Route exact path="/plans">
+              <PlanList currentUser={currentUser} />
+            </Route>
+            {/* <Route path="/plans/:id" component={PlanShow} currentUser={currentUser} /> */}
+            <Route exact path="/plans/:id" render={(props) => {
+                props['currentUser'] = currentUser;
+                <PlanShow {...props} />
+              } 
+            } />
+            <Redirect to="/" />
+        </Switch>
     </div>
+  )
 }
 
 
