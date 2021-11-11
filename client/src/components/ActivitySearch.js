@@ -1,65 +1,67 @@
-import React,{ useState, useEffect} from 'react'
+import React,{ useState, useEffect} from 'react';
+import Activity from './Activity';
 
-function ActivitySearch({currentUser, currentPlan, setTogglePostSubmit}){
-    const [activityMessage, setActivityMessage]= useState({
-        name: "",
-        address: "",
-        start_time: 0,
-        end_time: 0,
-        description: "",
-        user_id: currentUser.id,
-        plan_id: currentPlan.id
-    });
-
-    const [activityList, setActivityList] = React.useState(null);
+function ActivitySearch({currentUser, currentPlan}){
+    const [togglePostSubmit, setTogglePostSubmit]= useState(false)
+    const [activityMessage, setActivityMessage]= useState(false)
+    const [currentSearchUser, setCurrentSearchUser] = useState([])
+    const [createActivity, handleCreateActivity] = useState();
+    const [activityList, setActivityList] = React.useState();
     const apiKey = 'AIzaSyCU8INN0qEE_FNI8p_f1WMfMYP9S-ALIbc';
 
     React.useEffect(() => {
-    fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&types=food&name=harbour&key=${apiKey}`,
+    fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurant+in+11231&key=${apiKey}`,
         {
             crossDomain:true,
             headers: {'Content-Type':'application/json'}
         })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data)
-            setActivityList(data);
+            // console.log(data)
+            setActivityList(data.results);
         });
-    }, [activityList]);
+    }, [togglePostSubmit]);
 
     if (!activityList) return null;
+    const activities = [];
 
-    function handleSubmitPost(e){
-        e.preventDefault()
-        
-        fetch('/activities',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(activityMessage)
-        })
-        setTogglePostSubmit(togglePostSubmit => !togglePostSubmit)
-    setActivityMessage({
-            name: "",
-            address: "",
-            start_time: 0,
-            end_time: 0,
-            description: "",
-            user_id: currentUser.id,
-            plan_id: currentPlan.id
-        })
-   }
-
-
-
-    function handleOnchange(e){
-        const key = e.target.name
-        setActivityMessage({...activityMessage, [key]: e.target.value}) 
+    if(activityList === undefined || activityList.status === 404) {
+        return null;
+    }
+    else {
+        // sort the array ascending
+        activityList.sort(function (a, b) {
+            return a.rating - b.rating;
+        });
+        // reverse it
+        activityList.reverse();
+        // map that to elements in the dom
+        activityList.forEach((activity, i) => {
+            if (activity.business_status == "OPERATIONAL") {
+                
+                activities.push(
+                    <Activity 
+                        key={i} activity={activity}  
+                        currentUser={currentUser}
+                        currentPlan={currentPlan}
+                        setTogglePostSubmit={setTogglePostSubmit}
+                        currentSearchUser={currentSearchUser}
+                        togglePostSubmit={togglePostSubmit}
+                    />
+                );
+                
+            }
+        });
     }
 
+//     function handleOnchange(e){
+//         const key = e.target.name
+//         setActivityMessage({...activityMessage, [key]: e.target.value}) 
+//     }
+
     return <div className="activity-search-container">
-        <h1>hello</h1>
+        <h1>Activities</h1>
+        {activities}
         {/* <form className="authenticated-form" onSubmit={handleSubmitPost}>
             <div className="input-container"> 
                 <label>Date: </label>

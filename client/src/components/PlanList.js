@@ -12,13 +12,14 @@ function PlanList({currentUser}){
     const [currentSearchUser, setCurrentSearchUser] = useState([])
     const [toggleUserDetail, setToggleUserDetail] = useState(false)
 
-    useEffect(() =>{
+    useEffect(() => {
         fetch(`/plans`)
         .then(r=>r.json())
-        .then(plansData => setUserPlan(plansData))
-        },[togglePostSubmit])
+        .then(plansData => { setUserPlan(plansData)})
+        },[togglePostSubmit]
+    )
 
-        console.log(userPlan)
+    console.log(userPlan);
 
     const displayPlan = userPlan === undefined || userPlan.status === 404 ? null : userPlan.map(plan => <PlanHandle 
         key={plan.id} plan={plan}  
@@ -26,7 +27,7 @@ function PlanList({currentUser}){
         setTogglePostSubmit={setTogglePostSubmit}
         currentSearchUser={currentSearchUser}
         togglePostSubmit={togglePostSubmit}
-        />)
+    />);
 
     const [isOpen, setIsOpen] = useState(false);
     const togglePopup = () => {
@@ -54,7 +55,7 @@ function PlanList({currentUser}){
           {isOpen && <Popup
             content={<>
               <h1>Create Plan</h1> 
-              <PlanForm currentUser={currentUser} setTogglePostSubmit={setTogglePostSubmit} handleClose={togglePopup}/>
+              <PlanForm currentUser={currentUser} setTogglePostSubmit={setTogglePostSubmit} handleClose={togglePopup} togglePostSubmit={togglePostSubmit}/>
             </>}
             handleClose={togglePopup}
           />}

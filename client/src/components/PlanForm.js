@@ -1,6 +1,6 @@
 import React, { useState }from 'react';
 
-function PlanForm({currentUser, setTogglePostSubmit, handleClose}){
+function PlanForm({currentUser, setTogglePostSubmit, handleClose}) {
     const [planMessage, setPlanMessage]= useState({
         date: "",
         start_time: 0,
@@ -9,26 +9,26 @@ function PlanForm({currentUser, setTogglePostSubmit, handleClose}){
         user_id: currentUser.id
         })
 
-function handleSubmitPost(e){
-    e.preventDefault()
-    
-    fetch('/plans',{
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(planMessage)
-    })
-    setTogglePostSubmit(togglePostSubmit => !togglePostSubmit)
-    handleClose()
-   setPlanMessage({
-        date: "",
-        start_time: 0,
-        end_time: 0,
-        location: "",
-        user_id: currentUser.id
-    })
-   }
+    function handleSubmitPost(e){
+        e.preventDefault()
+        
+        fetch('/plans',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(planMessage)
+        });
+        setTogglePostSubmit(togglePostSubmit => !togglePostSubmit);
+        handleClose();
+        setPlanMessage({
+            date: "",
+            start_time: 0,
+            end_time: 0,
+            location: "",
+            user_id: currentUser.id
+        })
+    }
 
 
 

@@ -184,7 +184,20 @@ code {
   
 }
 
+.each-activity-container {
+  background-color: rgb(188, 188, 188);
+  border: solid black 1px;
+}
 
+.header-plan {
+  width: 50%;
+  float: right;
+  text-align: center;}
+
+.activity-container {
+  width: 50%;
+  float: left;
+}
 
 .password-signup-confirmation-box {
   background-color: white;
