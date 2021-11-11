@@ -26,15 +26,12 @@ function PlanList({currentUser}){
         currentUser={currentUser}
         setTogglePostSubmit={setTogglePostSubmit}
         currentSearchUser={currentSearchUser}
-        togglePostSubmit={togglePostSubmit}
     />);
 
     const [isOpen, setIsOpen] = useState(false);
     const togglePopup = () => {
         setIsOpen(!isOpen);
     }
-
-    
 
     // useEffect(()=>{
     //     fetch(`/plans/${id}`,{

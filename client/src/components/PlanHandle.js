@@ -18,8 +18,9 @@ function PlanHandle({plan, currentUser, setTogglePostSubmit, currentSearchUser})
     function handleDeletePlan(){
         fetch(`/plans/${id}`,{
             method: 'DELETE'
+        }).then(() => {
+            setTogglePostSubmit(togglePostSubmit => !togglePostSubmit);
         });
-        setTogglePostSubmit(togglePostSubmit => !togglePostSubmit)
     }
 
     return (
