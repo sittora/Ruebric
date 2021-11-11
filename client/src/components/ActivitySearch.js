@@ -1,8 +1,8 @@
 import React,{ useState, useEffect} from 'react';
 import Activity from './Activity';
 
-function ActivitySearch({currentUser, currentPlan}){
-    const [togglePostSubmit, setTogglePostSubmit]= useState(false)
+function ActivitySearch({currentUser, currentPlan, setToggleActivitySubmit}){
+    const [toggleSearch, setToggleSearch]= useState(false)
     const [activityMessage, setActivityMessage]= useState(false)
     const [currentSearchUser, setCurrentSearchUser] = useState([])
     const [createActivity, handleCreateActivity] = useState();
@@ -17,10 +17,11 @@ function ActivitySearch({currentUser, currentPlan}){
         })
         .then((res) => res.json())
         .then((data) => {
-            // console.log(data)
+            console.log(`Got Activities ${data}`);
             setActivityList(data.results);
-        });
-    }, [togglePostSubmit]);
+        })            
+        // });
+    }, [toggleSearch]);
 
     if (!activityList) return null;
     const activities = [];
@@ -44,9 +45,8 @@ function ActivitySearch({currentUser, currentPlan}){
                         key={i} activity={activity}  
                         currentUser={currentUser}
                         currentPlan={currentPlan}
-                        setTogglePostSubmit={setTogglePostSubmit}
+                        setToggleActivitySubmit={setToggleActivitySubmit}
                         currentSearchUser={currentSearchUser}
-                        togglePostSubmit={togglePostSubmit}
                     />
                 );
                 

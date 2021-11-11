@@ -3,7 +3,7 @@ import ActivityForm from './ActivityForm'
 import {Link} from 'react-router-dom'
 import Popup from "./Popup";
 
-function Activity({activity, currentUser, currentPlan, setTogglePostSubmit, currentSearchUser, togglePostSubmit}){
+function Activity({activity, currentUser, currentPlan, setToggleActivitySubmit, currentSearchUser}){
     const {date, start_time, end_time, location, id} = activity;
     // const [activityMessage, setActivityMessage] = useState('');
 
@@ -15,9 +15,9 @@ function Activity({activity, currentUser, currentPlan, setTogglePostSubmit, curr
     function handleDeleteActivity(){
         fetch(`/activities/${id}`,{
             method: 'DELETE'
-        })
-    
-        setTogglePostSubmit(togglePostSubmit => !togglePostSubmit)
+        }).then(() => {
+            setToggleActivitySubmit(toggleActivitySubmit => !toggleActivitySubmit)
+        });
     }
 
     return (
@@ -36,7 +36,7 @@ function Activity({activity, currentUser, currentPlan, setTogglePostSubmit, curr
                 {isOpen && <Popup
                     content={<>
                     <h1>Create Activity</h1> 
-                    <ActivityForm activity={activity} currentUser={currentUser} currentPlan={currentPlan} setTogglePostSubmit={setTogglePostSubmit} handleClose={togglePopup}/>
+                    <ActivityForm activity={activity} currentUser={currentUser} currentPlan={currentPlan} setToggleActivitySubmit={setToggleActivitySubmit} handleClose={togglePopup}/>
                     </>}
                     handleClose={togglePopup}
                 />}

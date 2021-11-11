@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import DisplayActivity from './DisplayActivity'
-function ActivityForm({activity, currentUser, currentPlan, setTogglePostSubmit, handleClose}){
+function ActivityForm({activity, currentUser, currentPlan, setToggleActivitySubmit, handleClose}){
     const [activityData, setActivityData]= useState({
         name: activity.name,
         address: activity.formatted_address,
@@ -10,18 +10,6 @@ function ActivityForm({activity, currentUser, currentPlan, setTogglePostSubmit, 
         user_id: currentUser.id,
         plan_id: currentPlan.id
     });
-
-    // const [toggleBtn, setToggleBtn]= useState(false);
-
-    // const activityMessage = {
-    //     name: activity.name,
-    //     address: activity.formatted_address,
-    //     start_time: 0,
-    //     end_time: 0,
-    //     description: "test",
-    //     user_id: currentUser.id,
-    //     plan_id: currentPlan.id
-    // }
     
     function handleOnchange(e){
         const key = e.target.name;
@@ -37,36 +25,22 @@ function ActivityForm({activity, currentUser, currentPlan, setTogglePostSubmit, 
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(activityData)
-        })
-        setTogglePostSubmit(togglePostSubmit => !togglePostSubmit);
-        handleClose();
+        }).then(() => {
+            setToggleActivitySubmit(toggleActivitySubmit => !toggleActivitySubmit);
+            handleClose();
+            setActivityData({
+                name: activity.name,
+                address: activity.formatted_address,
+                start_time: 0,
+                end_time: 0,
+                description: "",
+                user_id: currentUser.id,
+                plan_id: currentPlan.id
+            });
+        });
         // todo: add back
         // activities.push(activityData);
-
-        setActivityData({
-        
-            name: activity.name,
-            address: activity.formatted_address,
-            start_time: 0,
-            end_time: 0,
-            description: "",
-            user_id: currentUser.id,
-            plan_id: currentPlan.id
-        })
    }
-
-    // function handleSubmitActivity(e){
-    //     e.preventDefault()
-        
-    //     fetch('/activities',{
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(activityData)
-    //     })
-    //     setTogglePostSubmit(togglePostSubmit => !togglePostSubmit)
-    // }
 
    // useEffect(()=>{
     //     fetch(`/plans/${id}`,{

@@ -5,8 +5,8 @@ import UserActivity from './UserActivity'
 
 function PlanShow({id, currentUser, setTogglePostSubmit, currentSearchUser, togglePostSubmit}){
     const [plan, setPlan] = React.useState(null);
-    const other_id = 15; // todo: get this from url
-    // const [togglePostSubmit, setTogglePostSubmit]= useState(false)
+    const other_id = 44; // todo: get this from url
+    const [toggleActivitySubmit, setToggleActivitySubmit]= useState(false)
 
     React.useEffect(() => {
         fetch(`/plans/${other_id}`)
@@ -15,7 +15,7 @@ function PlanShow({id, currentUser, setTogglePostSubmit, currentSearchUser, togg
                 console.log(data)
                 setPlan(data);
         });
-    }, [togglePostSubmit]);
+    }, [togglePostSubmit, toggleActivitySubmit]);
 
     if (!plan) return null;
 
@@ -27,6 +27,7 @@ function PlanShow({id, currentUser, setTogglePostSubmit, currentSearchUser, togg
         currentPlan={plan}
         setPlan={setPlan}
         currentSearchUser={currentSearchUser}
+        setToggleActivitySubmit={setToggleActivitySubmit}
         />)
 
     function handleDeletePlan(){
@@ -53,7 +54,7 @@ function PlanShow({id, currentUser, setTogglePostSubmit, currentSearchUser, togg
                 </div>
             </div>
             <div className="activity-container">
-                <ActivitySearch currentUser={currentUser} currentPlan={plan} togglePostSubmit={togglePostSubmit}/>
+                <ActivitySearch currentUser={currentUser} currentPlan={plan} setToggleActivitySubmit={setToggleActivitySubmit}/>
             </div>
         </div>
     )

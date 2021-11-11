@@ -18,16 +18,18 @@ function PlanForm({currentUser, setTogglePostSubmit, handleClose}) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(planMessage)
+        }).then(() => {
+            setTogglePostSubmit(togglePostSubmit => !togglePostSubmit);
+            handleClose();
         });
-        setTogglePostSubmit(togglePostSubmit => !togglePostSubmit);
-        handleClose();
+        
         setPlanMessage({
             date: "",
             start_time: 0,
             end_time: 0,
             location: "",
             user_id: currentUser.id
-        })
+        });
     }
 
 

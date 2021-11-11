@@ -3,20 +3,16 @@ import ActivityForm from './ActivityForm'
 import {Link} from 'react-router-dom'
 import Popup from "./Popup";
 
-function UserActivity({activity, currentUser, currentPlan, setPlan, currentSearchUser, togglePostSubmit}){
-    const {date, start_time, end_time, location, id} = activity;
+function UserActivity({activity, currentUser, currentPlan, setPlan, currentSearchUser, setToggleActivitySubmit}){
+    const {id} = activity;
 
     function handleDeleteActivity(){
         fetch(`/activities/${id}`,{
             method: 'DELETE'
+        }).then(() => {
+            setToggleActivitySubmit(togglePostSubmit => !togglePostSubmit);
         })
-    
-        setPlan(true);
     }
-
-    console.log(`currentPlan.user_id: ${currentPlan.user_id}`)
-    console.log(`currentUser.id: ${currentUser.id}`)
-    console.log(`equal? ${currentPlan.user_id == currentUser.id}`)
 
     return (
         <div className="each-activity-container">
