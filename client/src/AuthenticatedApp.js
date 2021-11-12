@@ -19,23 +19,12 @@ function AuthenticatedApp({setCurrentUser, currentUser, setToggleUpdateProfile})
 
   const [toggleUserDetail, setToggleUserDetail] = useState(false)
   //const [hideShow, setHideShow] = useState(false)
-  
-  const handleLogout = () => {
-    fetch(`/logout`, {
-      method: 'DELETE',
-      credentials: 'include'
-    })
-    .then(res => {
-      if (res.ok) {
-        setCurrentUser(null)
-      
-      }
-    })
-  }
 
   function handleCreateProfile(){
     setToggleCreateProfile(toggleCreateProfile => !toggleCreateProfile)
   }
+
+ 
 
   const displayUser = searchUser.length === 0 ? <h1>No Matching User </h1>: searchUser.map(user => <UserSearchHandle key={user.id} user={user} setCurrentSearchUser={setCurrentSearchUser} setToggleUserDetail={setToggleUserDetail} togglePostSubmit={togglePostSubmit} />)
 
@@ -76,6 +65,9 @@ function AuthenticatedApp({setCurrentUser, currentUser, setToggleUpdateProfile})
             <Route exact path="/plans/:id">
               <PlanShow currentUser={currentUser} togglePostSubmit={setTogglePostSubmit} currentSearchUser={currentSearchUser} />
             </Route>
+            {/* <Route path={`${match.url}/:id`}>
+              <PlanShow currentUser={currentUser} togglePostSubmit={setTogglePostSubmit} currentSearchUser={currentSearchUser} />
+            </Route> */}
             {/* <Route path="/plans/:id" component={PlanShow} currentUser={currentUser} /> */}
             {/* <Route exact path="/plans/:id" render={(props) => {
                 props['currentUser'] = currentUser;

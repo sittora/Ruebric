@@ -5,11 +5,15 @@ import UserActivity from './UserActivity'
 
 function PlanShow({id, currentUser, setTogglePostSubmit, currentSearchUser, togglePostSubmit}){
     const [plan, setPlan] = React.useState(null);
-    const other_id = 44; // todo: get this from url
-    const [toggleActivitySubmit, setToggleActivitySubmit]= useState(false)
+    // const other_id = 44; // todo: get this from url
+    const [toggleActivitySubmit, setToggleActivitySubmit]= useState(false);
+    // const params = useParams();
+
+    // console.log(params)
 
     React.useEffect(() => {
-        fetch(`/plans/${other_id}`)
+        // fetch(`/plans/${params}`)
+        fetch(`/plans/46`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data)

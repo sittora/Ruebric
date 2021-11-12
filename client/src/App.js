@@ -31,11 +31,10 @@ function App() {
   return (
     
     <Router>
-      <Header/>
     {currentUser ? (
         
         [
-          // <SeachUser />,
+          <Header loggedIn={true} setCurrentUser={setCurrentUser}/>,
           <AuthenticatedApp
             setCurrentUser={setCurrentUser}
             currentUser={currentUser}
@@ -44,8 +43,8 @@ function App() {
         ]
       ) : (
         [
-          <WelcomePage />,
-          
+          <Header loggedIn={true}/>,
+          <WelcomePage />, 
           <UnauthenticatedApp
             setCurrentUser={setCurrentUser}
           />

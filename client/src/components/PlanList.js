@@ -1,10 +1,13 @@
 import React,{ useState, useEffect} from 'react'
+import { Switch, Route, Redirect, useRouteMatch } from 'react-router-dom'
 import PlanForm from './PlanForm';
 import PlanHandle from './PlanHandle';
+import PlanShow from './PlanShow';
 import Popup from "./Popup";
 
 function PlanList({currentUser}){
-    const [userPlan, setUserPlan] = useState()
+  // const match= useRouteMatch();
+  const [userPlan, setUserPlan] = useState()
     const [togglePostSubmit, setTogglePostSubmit]= useState(false)
     const [toggleCreateProfile, setToggleCreateProfile] = useState(false)
     const [searchUser, setSearchUser] = useState([])
@@ -46,7 +49,10 @@ function PlanList({currentUser}){
     return (
         // toggleSearch === true ? (toggleUserDetail === false ? <div className="show-user-search-results">{displayUser}</div> : <DetailsUserSearch currentSearchUser={currentSearchUser} currentUser={currentUser} setTogglePostSubmit={setTogglePostSubmit}/>) :
         
-        <div className="plansContainer">          
+        <div className="plansContainer">    
+            {/* <Route path={`${match.url}/:id`}>
+              <PlanShow currentUser={currentUser} togglePostSubmit={setTogglePostSubmit} currentSearchUser={currentSearchUser} />
+            </Route> */}
           <button onClick={togglePopup}>Create</button>
           
           {isOpen && <Popup
@@ -60,7 +66,11 @@ function PlanList({currentUser}){
           <div className="all-plans-Container">
             {displayPlan}
           </div>
+
+          
         </div>
+
+        
     )
 }
 
