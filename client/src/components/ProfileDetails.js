@@ -17,7 +17,7 @@ function ProfileDetails({currentUser, setToggleUpdateProfile}){
             <div className="buttons-container">
                 <button className="update-your-profile-button" onClick={handleCreateProfile}>{currentUser.profile === null ? "Create Your Profile" : "Update Your Profile"}</button>                   
             </div>
-                {toggleCreateProfile === false ? currentUser.profile === null ? <h1>no user profile found</h1> : <h1>interesting</h1> : <CreateProfile currentUser={currentUser} setToggleUpdateProfile={setToggleUpdateProfile} setToggleCreateProfile={setToggleCreateProfile} />}
+                {toggleCreateProfile === false ? currentUser.profile === null ? <h1>no user profile found</h1> : <h1></h1> : <CreateProfile currentUser={currentUser} setToggleUpdateProfile={setToggleUpdateProfile} setToggleCreateProfile={setToggleCreateProfile} />}
         </div>
 
         <img className="profile-image" src={profile_url ==="" ? "https://st2.depositphotos.com/5682790/10456/v/600/depositphotos_104564156-stock-illustration-male-user-icon.jpg}" : profile_url} alt={name} />

@@ -18,9 +18,9 @@ function UserActivity({activity, currentUser, currentPlan, setPlan, currentSearc
         <div className="each-activity-container">
             <div className="header-activity" >
                 <h3>Business Name: {activity.name}</h3>
-                <p>Address: {activity.address}</p>
                 <p>Start Time: {activity.start_time}</p>
                 <p>End Time: {activity.end_time}</p>
+                <p>Address: {activity.address}</p>
                 <p>Description: {activity.description}</p>
                 {currentPlan.user_id == currentUser.id ? <button className="delete-activity-button" onClick={handleDeleteActivity}>Delete Activity</button> : null}
             </div>

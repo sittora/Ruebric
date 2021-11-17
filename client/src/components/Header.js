@@ -21,9 +21,10 @@ function Header({loggedIn, setCurrentUser}) {
     <div className="header-container">
        <img src={logo} alt={"logo"}/>
        {/* <h2>My plans</h2>  */}
-       <Link  to={{pathname: `/plans`}}>My Plans</Link>
-       <Link  to={{pathname: `/me`}}>My Profile</Link>
        {loggedIn === false ? null : <button className="logout-button" onClick={handleLogout}>Logout</button>}
+       {loggedIn === false ? null : <Link  to={{pathname: `/plans`}}>My Plans</Link>}
+       {loggedIn === false ? null : <Link  to={{pathname: `/me`}}>My Profile</Link>}
+       
     </div>
 )
 }

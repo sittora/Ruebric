@@ -43,7 +43,7 @@ function App() {
         ]
       ) : (
         [
-          <Header loggedIn={true}/>,
+          <Header loggedIn={false}/>,
           <WelcomePage />, 
           <UnauthenticatedApp
             setCurrentUser={setCurrentUser}
