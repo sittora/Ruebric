@@ -32,7 +32,7 @@ function App() {
     
     <Router>
     {currentUser ? (
-        
+
         [
           <Header loggedIn={true} setCurrentUser={setCurrentUser}/>,
           <AuthenticatedApp

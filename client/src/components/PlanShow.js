@@ -1,19 +1,20 @@
 import React,{ useState, useEffect} from 'react'
-import { BrowserRouter as Router, Switch, Route, useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 import ActivitySearch from './ActivitySearch'
 import UserActivity from './UserActivity'
 
-function PlanShow({id, currentUser, setTogglePostSubmit, currentSearchUser, togglePostSubmit}){
+function PlanShow({id, currentUser, setTogglePostSubmit, currentSearchUser, togglePostSubmit }){
     const [plan, setPlan] = React.useState(null);
     // const other_id = 44; // todo: get this from url
     const [toggleActivitySubmit, setToggleActivitySubmit]= useState(false);
-    // const { p_id } = useParams();
-
-    // console.log(p_id)
+    
+    // const p_id = params.p_id;
+    const { p_id } = useParams();
+    
 
     React.useEffect(() => {
-        // fetch(`/plans/${p_id}`)
-        fetch(`/plans/2`)
+        fetch(`/plans/${p_id}`)
+        // fetch(`/plans/2`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data)
