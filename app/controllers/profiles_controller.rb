@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
 
       private
       def profile_params
-        params.permit(:name, :location, :preferences, :user_id, :email, :profile_url)
+        params.permit(:name, :location, :preferences, :user_id, :email, :profile_url, :profile)
       end
 
       def get_profile

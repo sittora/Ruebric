@@ -1,16 +1,12 @@
 import React, { useState }from 'react';
 
-function CreateProfile({currentUser, setToggleUpdateProfile}){
+function CreateProfile({currentUser, setToggleUpdateProfile, setToggleCreateProfile}){
     const [pictureURL, setPictureURL] = useState("https://st2.depositphotos.com/5682790/10456/v/600/depositphotos_104564156-stock-illustration-male-user-icon.jpg")
     const [formData, setFormData] = useState({
-        nick_name: currentUser.profile === null ? "" : currentUser.profile.nick_name,
         name: currentUser.profile=== null ? "" : currentUser.profile.name,
-        birthday: currentUser.profile === null ? "" : currentUser.profile.birthday,
         location: currentUser.profile === null ? "" : currentUser.profile.location,
-        bio: currentUser.profile === null ? "" : currentUser.profile.bio,
-        occupation: currentUser.profile === null ? "" : currentUser.profile.occupation,
+        preferences: currentUser.profile === null ? "" : currentUser.profile.preferences,
         user_id: currentUser.id,
-        email: currentUser.profile === null ? "" : currentUser.profile.email,
         profile_url: currentUser.profile === null ? "" : currentUser.profile.profile_url
     })
 
@@ -24,18 +20,15 @@ function CreateProfile({currentUser, setToggleUpdateProfile}){
             body: JSON.stringify(formData)
         })
         setToggleUpdateProfile(toggleUpdateProfile => !toggleUpdateProfile)
-        // setPictureURL("https://i.imgur.com/CBtjmX0.png")
-        // setFormData({
-        //     nick_name: "",
-        //     name: "",
-        //     birthday: "",
-        //     location: "",
-        //     bio: "",
-        //     occupation: "",
-        //     user_id: currentUser.id,
-        //     email: "",
-        //     profile_url: ""
-        // })
+        setToggleCreateProfile(toggleCreateProfile => !toggleCreateProfile)
+        setPictureURL("https://i.imgur.com/CBtjmX0.png")
+        setFormData({
+            name: "",
+            location: "",
+            preferences: "",
+            user_id: currentUser.id,
+            profile_url: ""
+        })
     }
     function handleChange(event){
         
@@ -52,11 +45,6 @@ function CreateProfile({currentUser, setToggleUpdateProfile}){
                 <h3 id="submitHeader">{currentUser.profile === null ? "Create Your Profile" : "Update Your Profile" }</h3>
                 <img className="profileImage"src={currentUser.profile === null ? pictureURL : (currentUser.profile.profile_url === "" ? pictureURL: currentUser.profile.profile_url ) } alt="profilePicture" />
             
-            
-                <div className="input-container"> 
-                    <label className="nameForm">Your Nickname</label>
-                    <input type="text" className="nickname-input-box" name="nick_name" value={formData.nick_name} onChange={handleChange}></input>
-                </div>
                 <div className="input-container"> 
                     <label >Full Name: </label>
                     <input type="text" className="name-input-box" name="name" value={formData.name} onChange={handleChange}></input>
@@ -67,28 +55,16 @@ function CreateProfile({currentUser, setToggleUpdateProfile}){
                     <input type="text" className="profile-picture-input-box" name="profile_url" value={formData.profile_url} onChange={handleChange}></input>
                 </div>
                 <div className="input-container"> 
-                    <label >Age: </label>
-                    <input type="number" className="age-input-box" name="birthday" value={formData.birthday} onChange={handleChange}></input>
-                </div>
-                <div className="input-container"> 
-                    <label>Email: </label>
-                    <input type="text" className="email-input-box" name="email" value={formData.email} onChange={handleChange}></input>
-                </div>
-                <div className="input-container"> 
                     <label >Location: </label>
                     <input type="text" className="location-input-box" name="location" value={formData.location} onChange={handleChange}></input>
                 </div>
                 <div className="input-container"> 
-                    <label >Occupation: </label>
-                    <input type="text" className="occupation-input-box" name="occupation" value={formData.occupation} onChange={handleChange}></input>
-                </div>
-                <div className="input-container"> 
-                    <label>Bio: </label>
-                    <textarea type="text" className="bio-input-box" name="bio" value={formData.bio} onChange={handleChange}></textarea>
+                    <label>Preferences: </label>
+                    <textarea type="text" className="bio-input-box" name="preferences" value={formData.preferences} onChange={handleChange}></textarea>
                 </div>
             
                 <div className="input-container">
-                    <input type="submit" className="update-profile-button" value={currentUser.profile === null ? "Create Your Profile" : "Update Your Profile" } />
+                    <input type="submit" className="update-profile-button" value={currentUser.profile === null ? "Create" : "Update" } />
                 </div>
             </div>
         </form>
