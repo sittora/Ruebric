@@ -32,7 +32,7 @@ function PlanHandle({plan, currentUser, setTogglePostSubmit, currentSearchUser})
             <p className="text-plan-container">End Time: {end_time}</p>
             {/* todo: update handleDelete to handleEdit below >>> */}
             <Link to={`/plans/${id}`}>More Details</Link>
-            <button className="edit-button" onClick={handleDeletePlan}>Edit</button>
+            {/* <button className="edit-button" onClick={handleDeletePlan}>Edit</button> */}
             {currentUser.user_name === currentSearchUser.user_name || currentSearchUser.length === 0? <button onClick={handleDeletePlan}>Delete</button> : null}
             </div>
             {/* {image_url === "" ? null : <img src={image_url} alt={currentUser.user_name} className="imageContainer"></img>} */}

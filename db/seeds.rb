@@ -3,8 +3,10 @@
 
 u1 = User.create!(user_name:'michelle',password: "secret")
 u2 = User.create!(user_name:'andy',password: "secret")
+u3 = User.create!(user_name:'linda',password: "apple")
 
 p1 = Profile.create!(name: 'Michelle', location: 'New York City', preferences: 'Enjoy outdoors and hiking', user_id: u1.id )
+p2 = Profile.create!(name: 'Linda', location: 'New York City', preferences: 'Love to explore new places', user_id: u3.id )
 
 plan1 = Plan.create!(date: 20211103, start_time: 800, end_time: 1000, location: 'New York City', user_id: p1.id)
 

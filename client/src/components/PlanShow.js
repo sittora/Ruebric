@@ -7,13 +7,13 @@ function PlanShow({id, currentUser, setTogglePostSubmit, currentSearchUser, togg
     const [plan, setPlan] = React.useState(null);
     // const other_id = 44; // todo: get this from url
     const [toggleActivitySubmit, setToggleActivitySubmit]= useState(false);
-    // const params = useParams();
+    // const { p_id } = useParams();
 
-    // console.log(params)
+    // console.log(p_id)
 
     React.useEffect(() => {
-        // fetch(`/plans/${params}`)
-        fetch(`/plans/46`)
+        // fetch(`/plans/${p_id}`)
+        fetch(`/plans/2`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data)
@@ -51,7 +51,7 @@ function PlanShow({id, currentUser, setTogglePostSubmit, currentSearchUser, togg
                 <p className="text-plan-container">Start Time: {start_time}</p>
                 <p className="text-plan-container">End Time: {end_time}</p>
                 {/* <button className="edit-button" onClick={handleDeletePlan}>Edit</button> */}
-                {currentUser.user_name === currentSearchUser.user_name || currentSearchUser.length === 0? <button onClick={handleDeletePlan}>Delete Plan</button> : null}
+                {/* {currentUser.user_name === currentSearchUser.user_name || currentSearchUser.length === 0? <button className ="delete-plan-button" onClick={handleDeletePlan}>Delete Plan</button> : null} */}
 
                 <div className="plan-activities-container">
                     {displayPlanActivities}

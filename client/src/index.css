@@ -1,7 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  font-family: 'Graduate', cursive;
 }
 
 code {
@@ -792,3 +791,117 @@ input {
   background: #fff;
   color: #57cc99;
 }
+
+.create-button {
+  min-width: 100px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: 3%;
+}
+
+.create-button:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+.plan-button {
+  min-width: 100px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: 3%;
+}
+
+.plan-button:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+.delete-activity-button {
+  min-width: 100px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: 3%;
+}
+
+.delete-activity-button:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+.delete-plan-button {
+  min-width: 100px;
+  height: 30px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #b3e7ec;
+  left: 3%;
+}
+
+.delete-plan-button:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+.header-activity{
+  position: relative;
+  top: -20px;
+  left: -20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(197,70,88);
+  border-radius: 50px;
+background: #e0e0e0;
+box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+}
+
+.header-plan {
+  position: relative;
+  top: -20px;
+  left: -20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(197,70,88);
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow:  20px 20px 60px #bebebe,
+               -20px -20px 60px #ffffff;
+  }

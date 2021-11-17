@@ -62,8 +62,8 @@ function AuthenticatedApp({setCurrentUser, currentUser, setToggleUpdateProfile})
             <Route exact path="/plans">
               <PlanList currentUser={currentUser} />
             </Route>
-            <Route exact path="/plans/:id">
-              <PlanShow currentUser={currentUser} togglePostSubmit={setTogglePostSubmit} currentSearchUser={currentSearchUser} />
+            <Route exact path="/plans/:p_id">
+              <PlanShow currentUser={currentUser} setTogglePostSubmit={setTogglePostSubmit} currentSearchUser={currentSearchUser} />
             </Route>
             {/* <Route path={`${match.url}/:id`}>
               <PlanShow currentUser={currentUser} togglePostSubmit={setTogglePostSubmit} currentSearchUser={currentSearchUser} />

@@ -2,15 +2,28 @@ import React,{ useState, useEffect} from 'react';
 import Activity from './Activity';
 
 function ActivitySearch({currentUser, currentPlan, setToggleActivitySubmit}){
-    const [toggleSearch, setToggleSearch]= useState(false)
-    const [activityMessage, setActivityMessage]= useState(false)
+    const [searchMessage, setSearchMessage]= useState('')
     const [currentSearchUser, setCurrentSearchUser] = useState([])
-    const [createActivity, handleCreateActivity] = useState();
     const [activityList, setActivityList] = React.useState();
     const apiKey = 'AIzaSyCU8INN0qEE_FNI8p_f1WMfMYP9S-ALIbc';
 
-    React.useEffect(() => {
-    fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurant+in+11231&key=${apiKey}`,
+    const [searchData, setSearchData]= useState({
+        searchText: "",
+        location: ""
+    });
+
+    function handleOnchange(e){
+        const key = e.target.name;
+        setSearchData({...searchData, [key]: e.target.value});
+    }
+
+    function handleSearchActivity(e){
+        e.preventDefault();
+
+        const encodedText = searchData.searchText.split(' ').join('+');
+        const encodedLocation = searchData.location.split(' ').join('+');
+        console.log('made it here');
+        fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodedText}+in+${encodedLocation}&key=${apiKey}`,
         {
             crossDomain:true,
             headers: {'Content-Type':'application/json'}
@@ -19,15 +32,19 @@ function ActivitySearch({currentUser, currentPlan, setToggleActivitySubmit}){
         .then((data) => {
             console.log(`Got Activities ${data}`);
             setActivityList(data.results);
-        })            
-        // });
-    }, [toggleSearch]);
+            setToggleActivitySubmit(toggleActivitySubmit => !toggleActivitySubmit);
+            setSearchMessage(`Searching for ${searchData.searchText} in ${searchData.location}`)
+            setSearchData({
+                searchText: "",
+                location: ""
+            });
+        })
+   }
 
-    if (!activityList) return null;
     const activities = [];
 
     if(activityList === undefined || activityList.status === 404) {
-        return null;
+        console.log('No search activities returned')
     }
     else {
         // sort the array ascending
@@ -54,29 +71,26 @@ function ActivitySearch({currentUser, currentPlan, setToggleActivitySubmit}){
         });
     }
 
-//     function handleOnchange(e){
-//         const key = e.target.name
-//         setActivityMessage({...activityMessage, [key]: e.target.value}) 
-//     }
-
     return <div className="activity-search-container">
         <h1>Activities</h1>
-        {activities}
-        {/* <form className="authenticated-form" onSubmit={handleSubmitPost}>
+
+        <h3>{searchMessage !== '' ? searchMessage : ""}</h3>
+        
+        <form className="authenticated-form" onSubmit={handleSearchActivity}>
             <div className="input-container"> 
-                <label>Date: </label>
-                <input type="text" name="date" value={planMessage.date} onChange={handleOnchange}></input>
-                <label>Start Time: </label>
-                <input type="text" name="start_time" value={planMessage.start_time} onChange={handleOnchange}></input>
-                <label>End Time: </label>
-                <input type="text" name="end_time" value={planMessage.end_time} onChange={handleOnchange}></input>
+                <label>Search Terms: </label>
+                <input type="text" name="searchText" value={searchData.searchText} onChange={handleOnchange}></input>
+            </div>
+
+            <div className="input-container"> 
                 <label>Location: </label>
-                <input type="text" name="location" value={planMessage.location} onChange={handleOnchange}></input>
+                <input type="text" name="location" value={searchData.location} onChange={handleOnchange}></input>
             </div>
             <div className="input-container">
-                <input type="submit" className="plan-button" value="Create" />
+                <input type="submit" className="plan-button" value="Search" />
             </div>
-        </form> */}
+        </form>
+        {activities}
     </div>
 }
 
