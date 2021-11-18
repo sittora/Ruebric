@@ -193,9 +193,17 @@ code {
   padding-top: 10px;
 }
 
+.header-activity .box{
+  width: 90%;
+  padding: 20px;
+  margin: 30px 0px;
+}
+
 .header-plan {
-  width: 50%;
+  width: 40%;
   float: right;
+  padding: 20px;
+  margin: auto auto;
   text-align: center;}
 
 .activity-container {
@@ -757,6 +765,10 @@ input {
   border: #57cc99 3px solid;
 }
 
+.close-icon {
+  float: right;
+}
+
 .close-comment-button {
   min-width: 20px;
   height: 30px;
@@ -821,6 +833,11 @@ input {
 .create-button:hover {
   background: #fff !important;
   color: #57cc99;
+}
+
+.plan-activities-container {
+  border-top: 1px solid black;
+  
 }
 
 .plan-button, button {
@@ -917,6 +934,7 @@ box-shadow:  20px 20px 60px #bebebe,
   /* top: -20px;
   left: -20px; */
   font-size: 16px;
+  padding: 20px;
   font-weight: bold;
   color: rgb(197,70,88);
   border-radius: 50px;
@@ -930,10 +948,19 @@ box-shadow:  20px 20px 60px #bebebe,
     color: black;
   }
 
+  .header-plan a {
+    text-decoration: none;
+    padding: 30px;
+  }
+
+  .box {
+    background-color: #f0f0f0;
+    padding: 20px;
+    width: 50%;
+  }
+
+
   .delete-plan-button{
-    position: relative;
-    top: -20px;
-    left: -20px;
     font-size: 20px;
     font-weight: bold;
     color: rgb(197,70,88);

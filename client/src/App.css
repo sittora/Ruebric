@@ -157,10 +157,6 @@ position: absolute;
   overflow: auto;
 }
 
-.each-plan-container {
-  border: solid grey 1px;
-}
-
 .comment-form{
   margin: 20px 10px 60px;
 }

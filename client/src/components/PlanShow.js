@@ -35,6 +35,8 @@ function PlanShow({id, currentUser, setTogglePostSubmit, currentSearchUser, togg
         setToggleActivitySubmit={setToggleActivitySubmit}
         />)
 
+    const activityLength = activities === undefined ? 0 : activities.length;
+
     function handleDeletePlan(){
         fetch(`/plans/${plan_id}`,{
             method: 'DELETE'
@@ -55,9 +57,12 @@ function PlanShow({id, currentUser, setTogglePostSubmit, currentSearchUser, togg
                 {/* {currentUser.user_name === currentSearchUser.user_name || currentSearchUser.length === 0? <button className ="delete-plan-button" onClick={handleDeletePlan}>Delete Plan</button> : null} */}
 
                 <div className="plan-activities-container">
+
                     {displayPlanActivities}
                 </div>
             </div>
+            {activityLength === 0 ? <p>It looks like you don't have any activities! add a new activity</p> : null}
+
             <div className="activity-container">
                 <ActivitySearch currentUser={currentUser} currentPlan={plan} setToggleActivitySubmit={setToggleActivitySubmit}/>
             </div>

@@ -31,10 +31,13 @@ function PlanList({currentUser}){
         currentSearchUser={currentSearchUser}
     />);
 
+    const planLength = displayPlan && displayPlan.length > 0;
+
     const [isOpen, setIsOpen] = useState(false);
     const togglePopup = () => {
         setIsOpen(!isOpen);
     }
+
 
     // useEffect(()=>{
     //     fetch(`/plans/${id}`,{
@@ -53,6 +56,8 @@ function PlanList({currentUser}){
             {/* <Route path={`${match.url}/:id`}>
               <PlanShow currentUser={currentUser} togglePostSubmit={setTogglePostSubmit} currentSearchUser={currentSearchUser} />
             </Route> */}
+
+          {!planLength ? <p>You don't have any plans! Create one below</p> : null}
           <button onClick={togglePopup}>Create</button>
           
           {isOpen && <Popup
